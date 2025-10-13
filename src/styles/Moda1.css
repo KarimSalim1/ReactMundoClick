@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Generales */
+:root {
+    --colorPrincipal: #0D1321;
+    --colorSecundario: #1D2D44;
+    --colorTerciario: #3E5C76;
+    --colorCuarto: #748CAB;
+    --colorQuinto: #F0EBD8;
+    --fuentePrincipal: 'Poppins', sans-serif;
+}
+
+main {
+    min-height: 100vh;
+    width: 100%;
+}
+
+body {
+    font-family: var(--fuentePrincipal);
+    background-color: var(--colorPrincipal);
+    color: white;
+}
+
+h1 {
+    font-family: var(--fuentePrincipal);
+    font-weight: 400;
+    font-size: 3.5rem;
+    color: var(--colorQuinto);
+    text-shadow: 0 2px 5px rgba(0, 0, 2, 1);
+}
+
+
+/* Header */
+.header_moda {
+    background: url("../assets/images/ropa/fondoMODA.jpg") center center/cover;
+    background-repeat: no-repeat;
+    /* no-repeat: si la imagen es más chica no se repite */
+    width: 100%;
+    height: 280px;
+    position: relative;
+}
+
+.titulo_moda {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--colorCuarto);
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ====== SLIDER ====== */
+.slider {
+  width: 100%;
+  max-width: 1900px;
+  margin: 2rem auto;
+  overflow: hidden; /* evita scroll horizontal */
+}
+
+.slide-container {
+  display: flex;
+  width: calc(200px * 16); /* cantidad de slides * ancho */
+  animation: scroll 20s linear infinite;
+}
+
+.slide {
+  flex: 0 0 200px; /* cada slide mide 200px */
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Animación infinita */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* mueve la mitad, porque duplicaste las imágenes */
+  }
+}
+
+/* ====== SUBTÍTULO ====== */
+.subtitulo {
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+}
+
+.subtitulo h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    border-bottom: 2px solid #333;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* ====== PRODUCTOS ====== */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.producto {
+    background: #fff;
+    padding: 1.5rem 1rem 3.5rem; /* 👈 extra espacio abajo */
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.producto img {
+    width: 150px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.producto h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+/* Hover principal */
+.producto:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}
+
+.producto:hover img {
+    transform: scale(1.1);
+}
+
+/* Botón oculto que aparece al hover */
+.producto::after {
+    content: "Ver más";
+    position: absolute;
+    bottom: -105px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #005fa3;
+    color: rgb(0, 0, 0);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.producto:hover::after {
+    bottom: 15px;
+    opacity: 1;
+}
+
+/* ====== PAGINACIÓN ====== */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 0.5rem;
+}
+
+.paginacion button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
+
+.paginacion button:hover {
+    background: #555;
+}
+
+.paginacion a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ====== BOTÓN CATEGORÍAS ====== */
+.mov_categorias {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.mov_categorias button {
+    background: #0077cc;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.mov_categorias button:hover {
+    background: #005fa3;
+}
+
+.mov_categorias a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .titulo_moda { font-size: 2.5rem; }
+  .productos { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  .titulo_moda { font-size: 2rem; }
+  .productos { grid-template-columns: 1fr; }
+  .producto img { width: 120px; height: 150px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  .titulo_moda { font-size: 1.5rem; }
+  .productos { grid-template-columns: 1fr; gap: 1rem; }
+  .producto img { width: 100px; height: 120px; }
+  .paginacion button { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+}
