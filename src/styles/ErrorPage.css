@@ -1,0 +1,17 @@
+
+.contenido-404 {
+  height: 80vh;
+  margin-top: 8vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.error-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin: 30px auto;
+  display: block;
+}
+
+
