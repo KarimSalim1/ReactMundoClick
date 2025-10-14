@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Logo from "../assets/images/logo_mc.png";
 import logog from "../assets/images/google-icon.svg";
@@ -21,7 +22,7 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Datos de login:', formData);
-    // Aquí iría la lógica de autenticación
+   /*  Aquí iría la lógica de autenticación */
   };
 
   const togglePasswordVisibility = () => {
@@ -29,23 +30,23 @@ export const Login = () => {
   };
 
   return (
-    <main className="login-container">
-      <div className="login-content">
-        <div className="login-brand">
-          <img src={Logo} alt="Logo de MundoClick" className="login-logo" />
+    <main className="contenedor-login">
+      <div className="contenido-login">
+        <div className="marca-login">
+          <img src={Logo} alt="Logo de MundoClick" className="logo-login" />
           <h1>MundoClick</h1>
           <p>Conecta con el mundo digital</p>
         </div>
         
-        <div className="login-form-container">
-          <div className="login-form-header">
+        <div className="contenedor-formulario-login">
+          <div className="encabezado-formulario-login">
             <h2>Bienvenido de nuevo</h2>
             <p>Ingresa tus credenciales para continuar</p>
           </div>
           
-          <form className="login-form" onSubmit={handleSubmit}>
-            <div className="input-group">
-              <div className="input-icon">
+          <form className="formulario-login" onSubmit={handleSubmit}>
+            <div className="grupo-input">
+              <div className="icono-input">
                 <i className="fas fa-user"></i>
               </div>
               <input
@@ -59,8 +60,8 @@ export const Login = () => {
               />
             </div>
             
-            <div className="input-group">
-              <div className="input-icon">
+            <div className="grupo-input">
+              <div className="icono-input">
                 <i className="fas fa-lock"></i>
               </div>
               <input
@@ -80,35 +81,35 @@ export const Login = () => {
               </span>
             </div>
             
-            <div className="form-options">
-              <div className="remember-me">
-                <input type="checkbox" id="remember" />
-                <label htmlFor="remember">Recordarme</label>
+            <div className="opciones-formulario">
+              <div className="recordarme">
+                <input type="checkbox" id="recordar" />
+                <label htmlFor="recordar">Recordarme</label>
               </div>
-              <div className="forgot">
+              <div className="olvido">
                 <a href="#">¿Olvidaste tu contraseña?</a>
               </div>
             </div>
             
-            <button type="submit" className="login-btn">Iniciar Sesión</button>
+            <button type="submit" className="boton-login">Iniciar Sesión</button>
             
-            <div className="separator">
+            <div className="separador">
               <span>o continúa con</span>
             </div>
             
-            <div className="social-buttons">
-              <button type="button" className="btn-social google-btn">
+            <div className="botones-sociales">
+              <button type="button" className="btn-social btn-google">
                 <img src={logog} width="20" alt="Google icon" />
                 Continuar con Google
               </button>
-              <button type="button" className="btn-social facebook-btn">
+              <button type="button" className="btn-social btn-facebook">
                 <img src={logof} width="20" alt="Facebook icon" />
                 Continuar con Facebook
               </button>
             </div>
             
-            <div className="extra-links">
-              <p className="textodecuenta">
+            <div className="enlaces-extra">
+              <p className="texto-cuenta">
                 ¿No tenés cuenta? <a href="/register">Crear una cuenta</a>
               </p>
             </div>
@@ -116,10 +117,10 @@ export const Login = () => {
         </div>
       </div>
       
-      <div className="login-decoration">
-        <div className="decoration-item"></div>
-        <div className="decoration-item"></div>
-        <div className="decoration-item"></div>
+      <div className="decoracion-login">
+        <div className="item-decoracion"></div>
+        <div className="item-decoracion"></div>
+        <div className="item-decoracion"></div>
       </div>
     </main>
   );

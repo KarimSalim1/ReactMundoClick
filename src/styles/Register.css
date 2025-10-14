@@ -1,5 +1,5 @@
 /* Register.css con colores azules #0D1321 y #1D2D44 */
-.register-container {
+.contenedor-registro {
   height: 120vh;
   display: flex;
   align-items: center;
@@ -10,8 +10,8 @@
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.register-content {
+ 
+.contenido-registro {
   display: flex;
   background: #1D2D44;
   border-radius: 15px;
@@ -21,8 +21,8 @@
   width: 100%;
   z-index: 2;
 }
-
-.register-brand {
+ 
+.marca-registro {
   flex: 1;
   background: linear-gradient(135deg, rgba(29, 45, 68, 0.9) 0%, rgba(13, 19, 33, 0.9) 100%);
   padding: 40px;
@@ -34,8 +34,8 @@
   text-align: center;
   position: relative;
 }
-
-.register-brand::before {
+ 
+.marca-registro::before {
   content: '';
   position: absolute;
   top: 0;
@@ -45,29 +45,29 @@
   background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233E5C76' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
   opacity: 0.5;
 }
-
-.register-logo {
+ 
+.logo-registro {
   width: 120px;
   height: auto;
   margin-bottom: 20px;
   z-index: 2;
 }
-
-.register-brand h1 {
+ 
+.marca-registro h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   font-weight: 800;
   color: #F0EBD8;
   z-index: 2;
 }
-
-.register-brand p {
+ 
+.marca-registro p {
   font-size: 1.1rem;
   opacity: 0.8;
   z-index: 2;
 }
-
-.register-form-container {
+ 
+.contenedor-formulario-registro {
   flex: 1;
   padding: 40px;
   background: #F0EBD8;
@@ -75,43 +75,43 @@
   flex-direction: column;
   justify-content: center;
 }
-
-.register-form-header {
+ 
+.encabezado-formulario-registro {
   margin-bottom: 30px;
   text-align: center;
 }
-
-.register-form-header h2 {
+ 
+.encabezado-formulario-registro h2 {
   color: #0D1321;
   font-size: 2rem;
   margin-bottom: 10px;
   font-weight: 700;
 }
-
-.register-form-header p {
+ 
+.encabezado-formulario-registro p {
   color: #748CAB;
   font-size: 1rem;
 }
-
-.register-form {
+ 
+.formulario-registro {
   width: 100%;
 }
-
-.input-group {
+ 
+.grupo-input {
   position: relative;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
-
-.input-icon {
+ 
+.icono-input {
   position: absolute;
   left: 15px;
   color: #748CAB;
   z-index: 2;
 }
-
-.input-group input {
+ 
+.grupo-input input {
   width: 100%;
   padding: 15px 15px 15px 45px;
   border: 2px solid #d1d9e6;
@@ -121,13 +121,13 @@
   color: #0D1321;
   transition: all 0.3s ease;
 }
-
-.input-group input:focus {
+ 
+.grupo-input input:focus {
   outline: none;
   border-color: #3E5C76;
   box-shadow: 0 0 0 3px rgba(62, 92, 118, 0.2);
 }
-
+ 
 .toggle-password {
   position: absolute;
   right: 15px;
@@ -137,45 +137,45 @@
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
+ 
 .toggle-password:hover {
   color: #3E5C76;
 }
-
-.form-options {
+ 
+.opciones-formulario {
   margin-bottom: 25px;
 }
-
-.terms {
+ 
+.terminos {
   display: flex;
   align-items: flex-start;
 }
-
-.terms input {
+ 
+.terminos input {
   margin-right: 10px;
   margin-top: 3px;
   accent-color: #3E5C76;
 }
-
-.terms label {
+ 
+.terminos label {
   color: #0D1321;
   font-size: 0.9rem;
   line-height: 1.4;
 }
-
-.terms a {
+ 
+.terminos a {
   color: #3E5C76;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
-.terms a:hover {
+ 
+.terminos a:hover {
   color: #1D2D44;
   text-decoration: underline;
 }
-
-.register-btn {
+ 
+.btn-registro {
   width: 100%;
   padding: 15px;
   background: #3E5C76;
@@ -188,18 +188,18 @@
   transition: all 0.3s ease;
   margin-bottom: 20px;
 }
-
-.register-btn:hover {
+ 
+.btn-registro:hover {
   background: #1D2D44;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(13, 19, 33, 0.3);
 }
-
-.register-btn:active {
+ 
+.btn-registro:active {
   transform: translateY(0);
 }
-
-.separator {
+ 
+.separador {
   display: flex;
   align-items: center;
   text-align: center;
@@ -207,29 +207,29 @@
   color: #748CAB;
   font-size: 0.9rem;
 }
-
-.separator::before,
-.separator::after {
+ 
+.separador::before,
+.separador::after {
   content: '';
   flex: 1;
   border-bottom: 1px solid #d1d9e6;
 }
-
-.separator::before {
+ 
+.separador::before {
   margin-right: 10px;
 }
-
-.separator::after {
+ 
+.separador::after {
   margin-left: 10px;
 }
-
-.social-buttons {
+ 
+.botones-sociales {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-bottom: 25px;
 }
-
+ 
 .btn-social {
   display: flex;
   align-items: center;
@@ -244,43 +244,43 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
+ 
 .btn-social:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-color: #3E5C76;
 }
-
-.google-btn:hover {
+ 
+.btn-google:hover {
   background: rgba(219, 68, 55, 0.05);
 }
-
-.facebook-btn:hover {
+ 
+.btn-facebook:hover {
   background: rgba(66, 103, 178, 0.05);
 }
-
-.extra-links {
+ 
+.enlaces-extra {
   text-align: center;
 }
-
-.textodecuenta {
+ 
+.texto-cuenta {
   color: #0D1321;
   font-size: 0.95rem;
 }
-
-.textodecuenta a {
+ 
+.texto-cuenta a {
   color: #3E5C76;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
-.textodecuenta a:hover {
+ 
+.texto-cuenta a:hover {
   color: #1D2D44;
   text-decoration: underline;
 }
-
-.register-decoration {
+ 
+.decoracion-registro {
   position: absolute;
   top: 0;
   left: 0;
@@ -289,75 +289,74 @@
   pointer-events: none;
   z-index: 1;
 }
-
-.decoration-item {
+ 
+.item-decoracion {
   position: absolute;
   border-radius: 50%;
   background: rgba(62, 92, 118, 0.1);
 }
-
-.decoration-item:nth-child(1) {
+ 
+.item-decoracion:nth-child(1) {
   width: 300px;
   height: 300px;
   top: -100px;
   left: -100px;
 }
-
-.decoration-item:nth-child(2) {
+ 
+.item-decoracion:nth-child(2) {
   width: 200px;
   height: 200px;
   bottom: 50px;
   right: 100px;
 }
-
-.decoration-item:nth-child(3) {
+ 
+.item-decoracion:nth-child(3) {
   width: 150px;
   height: 150px;
   top: 50%;
   right: -50px;
 }
-
 /* Responsive */
 @media (max-width: 768px) {
-  .register-content {
+  .contenido-registro {
     flex-direction: column;
   }
   
-  .register-brand {
+  .marca-registro {
     padding: 30px 20px;
   }
   
-  .register-form-container {
+  .contenedor-formulario-registro {
     padding: 30px 20px;
   }
   
-  .terms label {
+  .terminos label {
     font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
-  .register-container {
+  .contenedor-registro {
     padding: 10px;
   }
   
-  .register-brand h1 {
+  .marca-registro h1 {
     font-size: 2rem;
   }
   
-  .register-form-header h2 {
+  .encabezado-formulario-registro h2 {
     font-size: 1.7rem;
   }
   
-  .social-buttons {
+  .botones-sociales {
     flex-direction: column;
   }
   
-  .terms {
+  .terminos {
     align-items: flex-start;
   }
   
-  .terms label {
+  .terminos label {
     font-size: 0.8rem;
   }
 }

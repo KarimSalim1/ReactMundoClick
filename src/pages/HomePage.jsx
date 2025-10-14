@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/HomePage.css' 
 import cap1 from "../assets/images/cap1.png";
 import cap2 from "../assets/images/cap2.png";
@@ -11,7 +10,7 @@ import producto2 from "../assets/images/producto2.png";
 import producto3 from "../assets/images/producto3.png";
 import producto4 from "../assets/images/producto4.png";
 import { NavLink, Link } from 'react-router-dom';
-import { Moda1 } from './Moda1';
+
 
 export const HomePage = () => (
   <div>
@@ -84,7 +83,7 @@ export const HomePage = () => (
               <div className="card-body">
                 <h5 className="card-title">Hogar y muebles</h5>
                 <p className="card-text">Todo para tu casa en un solo lugar.</p>
-                <a href="/pages/error404.html" className="btn btn-outline-primary w-100">Explorar</a>
+                <NavLink to= "/error" className="btn btn-outline-primary w-100">Explorar</NavLink>
               </div>
             </div>
           </div>
@@ -100,6 +99,7 @@ export const HomePage = () => (
               <img src={producto1} className="card-img-top" alt="Producto 1" />
               <div className="card-body text-center">
                 <h5 className="card-title">Auriculares Gamer</h5>
+                {/* aca iría el navlink con el detalle de producto1 */}
                 <a href="pages/detalleproducto2.html" className="btn btn-outline-light mt-2 w-100">Ver detalle</a>
               </div>
             </div>
@@ -109,6 +109,7 @@ export const HomePage = () => (
               <img src={producto2} className="card-img-top" alt="Producto 2" />
               <div className="card-body text-center">
                 <h5 className="card-title">Apple iPhone 14</h5>
+                {/* aca iría el navlink con el detalle de producto */}
                 <a href="pages/detalleproducto.html" className="btn btn-outline-light mt-2 w-100">Ver detalle</a>
               </div>
             </div>
@@ -128,7 +129,7 @@ export const HomePage = () => (
               <img src={producto4} className="card-img-top" alt="Producto 4" />
               <div className="card-body text-center">
                 <h5 className="card-title">Micrófono Gamer</h5>
-                <a href="pages/error404.html" className="btn btn-outline-light mt-2 w-100">Ver detalle</a>
+                <NavLink to= "/*" className="btn btn-outline-light mt-2 w-100">Ver detalle</NavLink>
               </div>
             </div>
           </div>
