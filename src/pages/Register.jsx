@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Logo from "../assets/images/logo_mc.png";
 import logog from "../assets/images/google-icon.svg";
@@ -25,21 +26,18 @@ export const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Validar que las contraseñas coincidan
+
     if (formData.password !== formData.confirmPassword) {
       alert("Las contraseñas no coinciden");
       return;
     }
-    
-    // Validar términos y condiciones
+
     if (!formData.acceptTerms) {
       alert("Debes aceptar los términos y condiciones");
       return;
     }
-    
+
     console.log('Datos de registro:', formData);
-    // Aquí iría la lógica de registro
   };
 
   const togglePasswordVisibility = (field) => {
@@ -51,23 +49,23 @@ export const Register = () => {
   };
 
   return (
-    <main className="register-container">
-      <div className="register-content">
-        <div className="register-brand">
-          <img src={Logo} alt="Logo de MundoClick" className="register-logo" />
+    <main className="contenedor-registro">
+      <div className="contenido-registro">
+        <div className="marca-registro">
+          <img src={Logo} alt="Logo de MundoClick" className="logo-registro" />
           <h1>MundoClick</h1>
           <p>Únete a nuestra comunidad</p>
         </div>
         
-        <div className="register-form-container">
-          <div className="register-form-header">
+        <div className="contenedor-formulario-registro">
+          <div className="encabezado-formulario-registro">
             <h2>Crear una cuenta</h2>
             <p>Completa tus datos para registrarte</p>
           </div>
           
-          <form className="register-form" onSubmit={handleSubmit}>
-            <div className="input-group">
-              <div className="input-icon">
+          <form className="formulario-registro" onSubmit={handleSubmit}>
+            <div className="grupo-input">
+              <div className="icono-input">
                 <i className="fas fa-user"></i>
               </div>
               <input
@@ -81,8 +79,8 @@ export const Register = () => {
               />
             </div>
             
-            <div className="input-group">
-              <div className="input-icon">
+            <div className="grupo-input">
+              <div className="icono-input">
                 <i className="fas fa-envelope"></i>
               </div>
               <input
@@ -96,8 +94,8 @@ export const Register = () => {
               />
             </div>
             
-            <div className="input-group">
-              <div className="input-icon">
+            <div className="grupo-input">
+              <div className="icono-input">
                 <i className="fas fa-lock"></i>
               </div>
               <input
@@ -117,8 +115,8 @@ export const Register = () => {
               </span>
             </div>
             
-            <div className="input-group">
-              <div className="input-icon">
+            <div className="grupo-input">
+              <div className="icono-input">
                 <i className="fas fa-lock"></i>
               </div>
               <input
@@ -138,40 +136,40 @@ export const Register = () => {
               </span>
             </div>
             
-            <div className="form-options">
-              <div className="terms">
+            <div className="opciones-formulario">
+              <div className="terminos">
                 <input 
                   type="checkbox" 
-                  id="acceptTerms" 
+                  id="aceptarTerminos" 
                   name="acceptTerms"
                   checked={formData.acceptTerms}
                   onChange={handleChange}
                 />
-                <label htmlFor="acceptTerms">
+                <label htmlFor="aceptarTerminos">
                   Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>
                 </label>
               </div>
             </div>
             
-            <button type="submit" className="register-btn">Crear Cuenta</button>
+            <button type="submit" className="btn-registro">Crear Cuenta</button>
             
-            <div className="separator">
+            <div className="separador">
               <span>o regístrate con</span>
             </div>
             
-            <div className="social-buttons">
-              <button type="button" className="btn-social google-btn">
+            <div className="botones-sociales">
+              <button type="button" className="btn-social btn-google">
                 <img src={logog} width="20" alt="Google icon" />
                 Continuar con Google
               </button>
-              <button type="button" className="btn-social facebook-btn">
+              <button type="button" className="btn-social btn-facebook">
                 <img src={logof} width="20" alt="Facebook icon" />
                 Continuar con Facebook
               </button>
             </div>
             
-            <div className="extra-links">
-              <p className="textodecuenta">
+            <div className="enlaces-extra">
+              <p className="texto-cuenta">
                 ¿Ya tenés cuenta? <a href="/login">Iniciar Sesión</a>
               </p>
             </div>
@@ -179,10 +177,10 @@ export const Register = () => {
         </div>
       </div>
       
-      <div className="register-decoration">
-        <div className="decoration-item"></div>
-        <div className="decoration-item"></div>
-        <div className="decoration-item"></div>
+      <div className="decoracion-registro">
+        <div className="item-decoracion"></div>
+        <div className="item-decoracion"></div>
+        <div className="item-decoracion"></div>
       </div>
     </main>
   );
