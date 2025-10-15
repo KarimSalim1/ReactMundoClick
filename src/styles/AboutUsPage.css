@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .page-container {
     opacity: 0;
@@ -28,21 +24,7 @@
     --fuentePrincipal: 'Poppins', sans-serif;
 }
 
-/* BODY */
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--colorPrincipal);
-    color: white;
-    line-height: 1.5;
-}
 
-/* MAIN */
-main {
-    min-height: 100vh;
-    margin: 2rem auto;
-    max-width: 1200px;
-    padding: 0 1rem;
-}
 
 /* TITULOS */
 h1 {
