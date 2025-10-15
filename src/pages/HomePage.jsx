@@ -99,8 +99,7 @@ export const HomePage = () => (
               <img src={producto1} className="card-img-top" alt="Producto 1" />
               <div className="card-body text-center">
                 <h5 className="card-title">Auriculares Gamer</h5>
-                {/* aca iría el navlink con el detalle de producto1 */}
-                <a href="pages/detalleproducto2.html" className="btn btn-outline-light mt-2 w-100">Ver detalle</a>
+                <NavLink to="/ProductDetails2" className="btn btn-outline-primary w-100">Ver detalle</NavLink>
               </div>
             </div>
           </div>
