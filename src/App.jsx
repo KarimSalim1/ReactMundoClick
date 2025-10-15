@@ -7,8 +7,9 @@ import { Moda1 } from './pages/Moda1'
 import { Moda2 } from './pages/Moda2'
 import { Tecnologia1 } from './pages/Tecnologia1'
 import { Tecnologia2 } from './pages/Tecnologia2'
+import { ProductDetails } from './pages/ProductDetails.jsx';
 import { DetalleProducto3 } from './pages/DetalleProducto3'
-import { Login } from './pages/Login' 
+import { Login } from './pages/Login'
 import { Register } from './pages/Register'
 import { Navigate } from './components/Navigate'
 import { Footer } from './components/Footer'
@@ -20,16 +21,17 @@ function App() {
     <BrowserRouter>
       <Navigate />
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/moda1' element={<Moda1 />} />
         <Route path='/moda2' element={<Moda2 />} />
         <Route path='/tecnologia1' element={<Tecnologia1 />} />
         <Route path='/tecnologia2' element={<Tecnologia2 />} />
+        <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path='/detalleproducto3' element={<DetalleProducto3 />} />
-        <Route path='*' element={<ErrorPage/>}/>
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

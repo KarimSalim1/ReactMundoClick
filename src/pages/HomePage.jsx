@@ -6,7 +6,7 @@ import moda from "../assets/images/moda.png";
 import tecnologia from "../assets/images/tecnologia.png";
 import hogar from "../assets/images/hogar.png";
 import producto1 from "../assets/images/producto1.png";
-import producto2 from "../assets/images/producto2.png";
+import producto2 from "../assets/images/Iphone12-removebg-preview.png";
 import producto3 from "../assets/images/producto3.png";
 import producto4 from "../assets/images/producto4.png";
 import { NavLink, Link } from 'react-router-dom';
@@ -109,8 +109,7 @@ export const HomePage = () => (
               <img src={producto2} className="card-img-top" alt="Producto 2" />
               <div className="card-body text-center">
                 <h5 className="card-title">Apple iPhone 14</h5>
-                {/* aca iría el navlink con el detalle de producto */}
-                <a href="pages/detalleproducto.html" className="btn btn-outline-light mt-2 w-100">Ver detalle</a>
+                <NavLink to="/ProductDetails" className="btn btn-outline-primary w-100">Ver detalle</NavLink>
               </div>
             </div>
           </div>
