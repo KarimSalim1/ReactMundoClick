@@ -7,6 +7,7 @@ import { Moda1 } from './pages/Moda1'
 import { Moda2 } from './pages/Moda2'
 import { Tecnologia1 } from './pages/Tecnologia1'
 import { Tecnologia2 } from './pages/Tecnologia2'
+import { AboutUsPage } from './pages/AboutUsPage.jsx';
 import { ProductDetails } from './pages/ProductDetails.jsx';
 import { ProductDetails2 } from './pages/ProductDetails2.jsx';
 import { DetalleProducto3 } from './pages/DetalleProducto3'
@@ -30,8 +31,9 @@ function App() {
         <Route path='/moda2' element={<Moda2 />} />
         <Route path='/tecnologia1' element={<Tecnologia1 />} />
         <Route path='/tecnologia2' element={<Tecnologia2 />} />
+        <Route path="/AboutUsPage" element={<AboutUsPage />} />
         <Route path="/ProductDetails" element={<ProductDetails />} />
-        <Route path="/ProductDetails2" element={<ProductDetails2/>}/>
+        <Route path="/ProductDetails2" element={<ProductDetails2 />} />
         <Route path='/detalleproducto3' element={<DetalleProducto3 />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
