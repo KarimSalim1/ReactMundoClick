@@ -1,3 +1,26 @@
+.boton-chat-ia {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: rgba(0, 191, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+
+.boton-chat-ia img {
+  width: 60%;
+  height: 60%;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+}
 
 
 
