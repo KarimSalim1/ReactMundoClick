@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { ErrorPage } from './pages/ErrorPage'
 import { HomePage } from './pages/HomePage'
@@ -7,14 +7,16 @@ import { Moda1 } from './pages/Moda1'
 import { Moda2 } from './pages/Moda2'
 import { Tecnologia1 } from './pages/Tecnologia1'
 import { Tecnologia2 } from './pages/Tecnologia2'
-import { AboutUsPage } from './pages/AboutUsPage.jsx';
-import { ProductDetails } from './pages/ProductDetails.jsx';
-import { ProductDetails2 } from './pages/ProductDetails2.jsx';
+import { AboutUsPage } from './pages/AboutUsPage.jsx'
+import { ProductDetails } from './pages/ProductDetails.jsx'
+import { ProductDetails2 } from './pages/ProductDetails2.jsx'
 import { DetalleProducto3 } from './pages/DetalleProducto3'
+import { ChatMundo } from './pages/ChatMundo.jsx'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
 import { Navigate } from './components/Navigate'
 import { Footer } from './components/Footer'
+import botIcono from "./assets/images/bot.png";
 import './App.css'
 
 
@@ -35,8 +37,12 @@ function App() {
         <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/ProductDetails2" element={<ProductDetails2 />} />
         <Route path='/detalleproducto3' element={<DetalleProducto3 />} />
+        <Route path="/chat" element={<ChatMundo />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
+      <Link to="/chat" className="boton-chat-ia">
+        <img src={botIcono} alt="Chat IA MundoClick" />
+      </Link>
       <Footer />
     </BrowserRouter>
   )
