@@ -1,149 +1,86 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const form = useRef();
 
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-
-    if (!formData.name || !formData.email || !formData.message) {
-      alert("Por favor, completa todos los campos requeridos.");
-      return;
-    }
-
-    setSending(true);
-    setSent(false);
-
-    // Simula envío
-    setTimeout(() => {
-      console.log("Datos enviados:", formData);
-      setSending(false);
-      setSent(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setSent(false), 3000);
-    }, 2000);
+    emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY)
+      .then(
+        () => {
+          alert("✅ Mensaje enviado con éxito!");
+          form.current.reset();
+        },
+        (error) => {
+          console.error("❌ Error al enviar el mensaje:", error);
+          alert("Error al enviar el mensaje, por favor intente nuevamente.");
+        }
+      );
   };
 
   return (
-    <div className="pagina-contacto">
-      <div className="contenedorprinc">
-        <div className="header-contacto">
-          <h1>Contáctanos</h1>
-          <p>Estamos aquí para ayudarte. ¡Escríbenos!</p>
-        </div>
+    <main id="contact-page">
+      <section id="contact-section">
+        <h2 id="contact-title">Contacto</h2>
 
-        <div className="contenedorsec">
-          <div className="infocontacto">
-            <div className="info-item">
-              <div className="info-icono">📍</div>
-              <div className="info-contenido">
-                <h3>Dirección</h3>
-                <p>Laprida 999</p>
-              </div>
-            </div>
-
-            <div className="info-item">
-              <div className="info-icono">✉️</div>
-              <div className="info-contenido">
-                <h3>Email</h3>
-                <p>mundoclick@gmail.com</p>
-              </div>
-            </div>
-
-              <div className="info-item">
-              <div className="info-icono">📞</div>
-              <div className="info-contenido">
-                <h3>Teléfono</h3>
-                <p>+54 111 1111</p>
-              </div>
-            </div>
-
-            <div className="info-item">
-              <div className="info-icono">🕒</div>
-              <div className="info-contenido">
-                <h3>Horario</h3>
-                <p>Lun - Vie: 9:00 - 18:00</p>
-              </div>
-            </div>
+        <form ref={form} onSubmit={sendEmail} id="contact-form">
+          <div className="contact-field">
+            <label htmlFor="contact-name">Nombre completo</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="user_name"
+              placeholder="Tu nombre y apellido"
+              required
+            />
           </div>
 
-          <form className="formulario" onSubmit={handleSubmit}>
-            <div className="grupo-formulario">
-              <input
-                type="text"
-                name="name"
-                placeholder="Tu nombre completo"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
+          <div className="contact-field">
+            <label htmlFor="contact-subject">Asunto</label>
+            <input
+              type="text"
+              id="contact-subject"
+              name="subject"
+              placeholder="Motivo del mensaje"
+              required
+            />
+          </div>
 
-            <div className="grupo-formulario">
-              <input
-                type="email"
-                name="email"
-                placeholder="Tu email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
+          <div className="contact-field">
+            <label htmlFor="contact-product">Tipo de producto</label>
+            <select id="contact-product" name="product_type" required>
+              <option value="">Selecciona un tipo</option>
+              <option value="ropa">Ropa</option>
+              <option value="accesorios">Accesorios</option>
+              <option value="tecnologia">Tecnología</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
 
-            <div className="grupo-formulario">
-              <input
-                type="text"
-                name="subject"
-                placeholder="Asunto"
-                value={formData.subject}
-                onChange={handleChange}
-              />
-            </div>
+          <div className="contact-field">
+            <label htmlFor="contact-message">Descripción</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="5"
+              placeholder="Escribe tu mensaje aquí..."
+              required
+            ></textarea>
+          </div>
 
-            <div className="grupo-formulario">
-              <textarea
-                name="message"
-                placeholder="Tu mensaje"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className={`boton ${sending ? "enviando" : ""}`}
-              disabled={sending}
-            >
-              {sending ? <span className="loader"></span> : "Enviar Mensaje"}
-            </button>
-
-            {sent && (
-              <p className="mensaje-exito">
-                ✅ ¡Mensaje enviado! Te contactaremos pronto.
-              </p>
-            )}
-          </form>
-        </div>
-      </div>
-    </div>
+          <button type="submit" id="contact-submit">
+            Enviar mensaje
+          </button>
+        </form>
+      </section>
+    </main>
   );
 };
