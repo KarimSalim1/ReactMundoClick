@@ -15,7 +15,7 @@ import heladeras from '../assets/images/heladerafb-removebg-preview.png';
 import cafeteras from '../assets/images/cafeterafb-removebg-preview.png';
 
 
-export const Tecnologia2 = () => {
+export const Technology2 = () => {
   return (
     <>
       {/* Sección título */}

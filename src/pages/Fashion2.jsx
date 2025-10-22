@@ -12,7 +12,7 @@ import mediasLOGOremovebgpreview from '../assets/images/ropa/mediasLOGO-removebg
 import boxersLOGOremovebgpreview from '../assets/images/ropa/boxersLOGO-removebg-preview.png';
 import trajedeBañoremovebgpreview from '../assets/images/ropa/trajedeBaño-removebg-preview.png';
 
-export const Moda2 = () => {
+export const Fashion2 = () => {
   return (
     <>
       {/* Sección título */}

@@ -12,7 +12,7 @@ import lentesLOGOremovebgpreview from '../assets/images/ropa/lentesLOGO-removebg
 import zapatosLOGOremovebgpreview from '../assets/images/ropa/zapatosLOGO-removebg-preview.png';
 import zapatillasremovebgpreview from '../assets/images/ropa/zapatillas-removebg-preview.png';
 
-export const Moda1 = () => {
+export const Fashion1 = () => {
   return (
     <>
       {/* Sección título */}

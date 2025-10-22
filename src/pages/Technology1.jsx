@@ -19,7 +19,7 @@ import cafeteras from '../assets/images/cafeterafb-removebg-preview.png';
 
 
 
-export const Tecnologia1 = () => {
+export const Technology1 = () => {
   return (
     <>
       {/* Sección título */}

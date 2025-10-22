@@ -8,7 +8,7 @@ import tecladoymouse2 from '../assets/images/Tecladoymouse2-removebg-preview.png
 import tecladoymouse3 from '../assets/images/Tecladoymouse3-removebg-preview.png';
 import tecladoymouse4 from '../assets/images/Tecladoymouse4-removebg-preview.png';
 
-export const DetalleProducto3 = () => {
+export const ProductDetails3 = () => {
   // Estados
   const [rating, setRating] = useState(0);
   const [comentario, setComentario] = useState("");
