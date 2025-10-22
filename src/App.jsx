@@ -8,6 +8,7 @@ import { Fashion2 } from './pages/Fashion2.jsx'
 import { Technology1 } from './pages/Technology1.jsx'
 import { Technology2 } from './pages/Technology2.jsx'
 import { AboutUsPage } from './pages/AboutUsPage.jsx'
+import { CartDetails } from './pages/CartDetails.jsx'
 import { ProductDetails } from './pages/ProductDetails.jsx'
 import { ProductDetails2 } from './pages/ProductDetails2.jsx'
 import { DetalleProducto3 } from './pages/DetalleProducto3'
@@ -34,6 +35,7 @@ function App() {
         <Route path='/technology1' element={<Technology1 />} />
         <Route path='/technology2' element={<Technology2 />} />
         <Route path="/AboutUsPage" element={<AboutUsPage />} />
+        <Route path="/cartDetails" element={<CartDetails/>} />
         <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/ProductDetails2" element={<ProductDetails2 />} />
         <Route path='/productDetails3' element={<ProductDetails3 />} />

@@ -28,10 +28,10 @@ export const Navigate = () => {
                     </Nav>
                     <div className="nav-right-section">
                         <div className="nav-icons-container">
-                            <a href="/pay" className="cart-icon">
+                            <NavLink to="/cartDetails" className="cart-icon">
                                 <i className="fas fa-shopping-cart">🛒</i>
                                 <span className="cart-count">3</span>
-                            </a>
+                                </NavLink>
                         </div>
                         <div className="auth-buttons">
                             <NavLink to="/login" className="btn-login">Iniciar Sesión</NavLink>
