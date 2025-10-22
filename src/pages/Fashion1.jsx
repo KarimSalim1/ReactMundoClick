@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import '../styles/Moda2.css'
+import '../styles/Fashion1.css'
 import camperaLOGOremovebgpreview from '../assets/images/ropa/camperaLOGO-removebg-preview.png';
 import remeraLOGOremovebgpreview from '../assets/images/ropa/remeraLOGO-removebg-preview.png';
 import jeansLOGOremovebgpreview from '../assets/images/ropa/jeansLOGO-removebg-preview.png';
@@ -8,11 +8,11 @@ import camperaITEM1 from '../assets/images/ropa/camperaITEM1.png';
 import camperaITEM2removebgpreview from '../assets/images/ropa/camperaITEM2-removebg-preview.png';
 import remeraNegra1removebgpreview from '../assets/images/ropa/remeraNegra1-removebg-preview.png';
 import camisaRojaremovebgpreview from '../assets/images/ropa/camisaRoja-removebg-preview.png';
-import mediasLOGOremovebgpreview from '../assets/images/ropa/mediasLOGO-removebg-preview.png';
-import boxersLOGOremovebgpreview from '../assets/images/ropa/boxersLOGO-removebg-preview.png';
-import trajedeBañoremovebgpreview from '../assets/images/ropa/trajedeBaño-removebg-preview.png';
+import lentesLOGOremovebgpreview from '../assets/images/ropa/lentesLOGO-removebg-preview.png';
+import zapatosLOGOremovebgpreview from '../assets/images/ropa/zapatosLOGO-removebg-preview.png';
+import zapatillasremovebgpreview from '../assets/images/ropa/zapatillas-removebg-preview.png';
 
-export const Moda2 = () => {
+export const Moda1 = () => {
   return (
     <>
       {/* Sección título */}
@@ -87,40 +87,50 @@ export const Moda2 = () => {
       <section className="productos">
         <div className="producto">
           {/* <Link to={}> */}
-          <img src={camisaRojaremovebgpreview} alt="camisas" />
-          <h3 className='producto-titulo'>Camisas</h3>
+            <img src={remeraLOGOremovebgpreview} alt="remeras" />
+            <h3 className='producto-titulo'>Remeras</h3>
           {/* </Link> */}
         </div>
 
         <div className="producto">
           {/* <Link to= {} > */}
-          <img src={mediasLOGOremovebgpreview} alt="medias" />
-          <h3 className='producto-titulo'>Medias</h3>
+            <img src={camperaLOGOremovebgpreview} alt="camperas" />
+            <h3 className='producto-titulo'>Camperas</h3>
           {/* </Link> */}
         </div>
 
         <div className="producto">
-          <img src={boxersLOGOremovebgpreview} alt="boxers" />
-          <h3 className='producto-titulo'>Boxers</h3>
+          <img src={jeansLOGOremovebgpreview} alt="jeans" />
+          <h3 className='producto-titulo'>Jeans</h3>
         </div>
 
         <div className="producto">
-          <img src={trajedeBañoremovebgpreview} alt="trajes de baño" />
-          <h3 className='producto-titulo'>Trajes de Baño</h3>
+          <img src={lentesLOGOremovebgpreview} alt="lentes" />
+          <h3 className='producto-titulo'>Lentes</h3>
+        </div>
+
+        <div className="producto">
+          <img src={zapatosLOGOremovebgpreview} alt="zapatos" />
+          <h3 className='producto-titulo'>Zapatos</h3>
+        </div>
+
+        <div className="producto">
+          <img src={zapatillasremovebgpreview} alt="zapatillas" />
+          <h3 className='producto-titulo'>Zapatillas</h3>
         </div>
       </section>
 
       {/* Paginación */}
       <nav className="paginacion">
-        <button><Link to="/moda1">« Anterior</Link></button>
-        <button><Link to="/moda1">1</Link></button>
-        <button><Link to="/moda2">2</Link></button>
-        <button><Link to="/moda2">Siguiente »</Link></button>
+        <button><Link to="/fashion1">« Anterior</Link></button>
+        <button><Link to="/fashion1">1</Link></button>
+        <button><Link to="/technology2">2</Link></button>
+        <button><Link to="/technology2">Siguiente »</Link></button>
       </nav>
 
       {/* Botón categorías */}
       <section className="mov_categorias">
-        <button><Link to="/tecnologia1">IR A "TECNOLOGÍA"</Link></button>
+        <button><Link to="/technology1">IR A "TECNOLOGÍA"</Link></button>
       </section>
     </>
   )

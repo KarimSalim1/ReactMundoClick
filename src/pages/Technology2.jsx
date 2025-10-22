@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import '../styles/Tecnologia2.css';
+import '../styles/Technology2.css';
 import auriculares from '../assets/images/Auricularesfb-removebg-preview.png';
 import computadoras from '../assets/images/compufb-removebg-preview.png';
 import teclados from '../assets/images/Teclado1fb-removebg-preview.png';
@@ -115,15 +115,15 @@ export const Tecnologia2 = () => {
 
       {/* Paginación */}
       <nav className="paginacion">
-        <button><Link to="/tecnologia1">« Anterior</Link></button>
-        <button><Link to="/tecnologia1">1</Link></button>
-        <button><Link to="/tecnologia2">2</Link></button>
-        <button><Link to="/tecnologia2">Siguiente »</Link></button>
+        <button><Link to="/technology1">« Anterior</Link></button>
+        <button><Link to="/technology1">1</Link></button>
+        <button><Link to="/technology2">2</Link></button>
+        <button><Link to="/technology2">Siguiente »</Link></button>
       </nav>
 
       {/* Botón categorías */}
       <section className="mov_categorias">
-        <button><Link to="/moda1">IR A "MODA"</Link></button>
+        <button><Link to="/fashion1">IR A "MODA"</Link></button>
       </section>
     </>
   )

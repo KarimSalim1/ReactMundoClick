@@ -63,7 +63,7 @@ export const HomePage = () => (
                 <h5 className="card-title">Moda</h5>
                 <p className="card-text">La mejor vestimenta para mujeres y para hombres.</p>
                 
-                <NavLink to= "/moda1" className="btn btn-outline-primary w-100">Explorar</NavLink>
+                <NavLink to= "/Fashion1" className="btn btn-outline-primary w-100">Explorar</NavLink>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@ export const HomePage = () => (
               <div className="card-body">
                 <h5 className="card-title">Tecnología</h5>
                 <p className="card-text">Accesorios, notebooks y más.</p>
-                <NavLink to= "/tecnologia1" className="btn btn-outline-primary w-100">Explorar</NavLink>
+                <NavLink to= "/technology1" className="btn btn-outline-primary w-100">Explorar</NavLink>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ export const HomePage = () => (
               <img src={producto3} className="card-img-top" alt="Producto 3" />
               <div className="card-body text-center">
                 <h5 className="card-title">Teclado Inalámbrico</h5>
-                <NavLink to= "/detalleproducto3" className="btn btn-outline-light mt-2 w-100">Ver detalle</NavLink>
+                <NavLink to= "/productDetails3" className="btn btn-outline-light mt-2 w-100">Ver detalle</NavLink>
               </div>
             </div>
           </div>

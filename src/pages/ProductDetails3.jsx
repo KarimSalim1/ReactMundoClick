@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import CarouselAction from "../components/CarouselApp";
-import '../styles/DetalleProducto3.css';
+import '../styles/ProductDetails3.css';
 import { productosRecomendados, productosSimilares } from "../data/carousel";
 import tecladoymouse from '../assets/images/Kit-TecMouse-RD.png';
 import tecladoymouse2 from '../assets/images/Tecladoymouse2-removebg-preview.png';
