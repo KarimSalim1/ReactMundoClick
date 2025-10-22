@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { ErrorPage } from './pages/ErrorPage'
 import { HomePage } from './pages/HomePage'
 import { Contact } from './pages/Contact'
-import { Moda1 } from './pages/Moda1'
-import { Moda2 } from './pages/Moda2'
-import { Tecnologia1 } from './pages/Tecnologia1'
-import { Tecnologia2 } from './pages/Tecnologia2'
+import { Fashion1 } from './pages/Fashion1.jsx'
+import { Fashion2 } from './pages/Fashion2.jsx'
+import { Technology1 } from './pages/Technology1.jsx'
+import { Technology2 } from './pages/Technology2.jsx'
 import { AboutUsPage } from './pages/AboutUsPage.jsx'
 import { ProductDetails } from './pages/ProductDetails.jsx'
 import { ProductDetails2 } from './pages/ProductDetails2.jsx'
@@ -29,14 +29,14 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/moda1' element={<Moda1 />} />
-        <Route path='/moda2' element={<Moda2 />} />
-        <Route path='/tecnologia1' element={<Tecnologia1 />} />
-        <Route path='/tecnologia2' element={<Tecnologia2 />} />
+        <Route path='/fashion1' element={<Fashion1 />} />
+        <Route path='/fashion2' element={<Fashion2 />} />
+        <Route path='/technology1' element={<Technology1 />} />
+        <Route path='/technology2' element={<Technology2 />} />
         <Route path="/AboutUsPage" element={<AboutUsPage />} />
         <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/ProductDetails2" element={<ProductDetails2 />} />
-        <Route path='/detalleproducto3' element={<DetalleProducto3 />} />
+        <Route path='/productDetails3' element={<ProductDetails3 />} />
         <Route path="/chat" element={<ChatMundo />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
