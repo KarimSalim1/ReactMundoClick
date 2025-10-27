@@ -1,16 +1,17 @@
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Logo from "../assets/images/logo_mc.png";
-import logog from "../assets/images/google-icon.svg";
-import logof from "../assets/images/facebook-icon.svg";
 import "../styles/Login.css";
+import { users } from "../data/users";
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -21,8 +22,17 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Datos de login:', formData);
-   /*  Aquí iría la lógica de autenticación */
+
+    const user = users.find(
+      (u) => u.email === formData.email && u.password === formData.password
+    );
+
+    if (user) {
+      localStorage.setItem('usuarioLogueado', JSON.stringify(user));
+      navigate('/cartdetails'); // Redirige al carrito
+    } else {
+      setError('Usuario o contraseña incorrectos');
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -37,13 +47,13 @@ export const Login = () => {
           <h1>MundoClick</h1>
           <p>Conecta con el mundo digital</p>
         </div>
-        
+
         <div className="contenedor-formulario-login">
           <div className="encabezado-formulario-login">
             <h2>Bienvenido de nuevo</h2>
             <p>Ingresa tus credenciales para continuar</p>
           </div>
-          
+
           <form className="formulario-login" onSubmit={handleSubmit}>
             <div className="grupo-input">
               <div className="icono-input">
@@ -59,7 +69,7 @@ export const Login = () => {
                 required
               />
             </div>
-            
+
             <div className="grupo-input">
               <div className="icono-input">
                 <i className="fas fa-lock"></i>
@@ -73,54 +83,19 @@ export const Login = () => {
                 onChange={handleChange}
                 required
               />
-              <span 
+              <span
                 className={`toggle-password ${showPassword ? 'visible' : ''}`}
                 onClick={togglePasswordVisibility}
               >
                 {showPassword ? 'Ocultar' : 'Mostrar'}
               </span>
             </div>
-            
-            <div className="opciones-formulario">
-              <div className="recordarme">
-                <input type="checkbox" id="recordar" />
-                <label htmlFor="recordar">Recordarme</label>
-              </div>
-              <div className="olvido">
-                <a href="#">¿Olvidaste tu contraseña?</a>
-              </div>
-            </div>
-            
+
+            {error && <p className="error-login">{error}</p>}
+
             <button type="submit" className="boton-login">Iniciar Sesión</button>
-            
-            <div className="separador">
-              <span>o continúa con</span>
-            </div>
-            
-            <div className="botones-sociales">
-              <button type="button" className="btn-social btn-google">
-                <img src={logog} width="20" alt="Google icon" />
-                Continuar con Google
-              </button>
-              <button type="button" className="btn-social btn-facebook">
-                <img src={logof} width="20" alt="Facebook icon" />
-                Continuar con Facebook
-              </button>
-            </div>
-            
-            <div className="enlaces-extra">
-              <p className="texto-cuenta">
-                ¿No tenés cuenta? <a href="/register">Crear una cuenta</a>
-              </p>
-            </div>
           </form>
         </div>
-      </div>
-      
-      <div className="decoracion-login">
-        <div className="item-decoracion"></div>
-        <div className="item-decoracion"></div>
-        <div className="item-decoracion"></div>
       </div>
     </main>
   );
