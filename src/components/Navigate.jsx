@@ -30,7 +30,7 @@ export const Navigate = () => {
                         <div className="nav-icons-container">
                             <NavLink to="/cartDetails" className="cart-icon">
                                 <i className="fas fa-shopping-cart">🛒</i>
-                                <span className="cart-count">3</span>
+                                
                                 </NavLink>
                         </div>
                         <div className="auth-buttons">

@@ -4,12 +4,27 @@ import '../styles/ProductDetails.css'
 import iphone12 from "../assets/images/Iphone12-removebg-preview.png";
 import iphone from "../assets/images/iphone14frente.png";
 import iphoneAzul from "../assets/images/iphoneazul.png";
+import { addToCart } from '../utils/cart.js';
+import React, { useState } from "react";
+import Notification from "../components/Notification.jsx";
 
 
 
 export const ProductDetails = () => {
+        const [showNotification, setShowNotification] = useState(false);
+
+        const handleAddToCart = (producto) => {
+            addToCart(producto);
+            setShowNotification(true);
+        };
     return (
         <>
+            {showNotification && (
+                <Notification
+                message="✅ Producto añadido al carrito"
+                onClose={() => setShowNotification(false)}
+                />
+            )}
                 <div className="product-container">
                     {/* Título del Producto */}
                     <h2 className="product-title">Apple iPhone 14 (128 GB) - Blanco - Azul Cielo</h2>
@@ -95,9 +110,19 @@ export const ProductDetails = () => {
                                 <a href="/pages/error404.html">
                                     <button className="buy-now">Comprar Ahora</button>
                                 </a>
-                                <a href="/pages/detallecarrito.html">
-                                    <button className="add-cart">Agregar al Carrito</button>
-                                </a>
+                                <button
+                                    className="add-cart"
+                                    onClick={() =>
+                                        handleAddToCart({
+                                        id: 1,
+                                        nombre: "Apple iPhone 14 (128 GB) - Blanco - Azul Cielo",
+                                        precio: 1500000,
+                                        imagen: iphone12,
+                                        })
+                                    }
+                                    >
+                                    Agregar al Carrito
+                                </button>
                             </div>
                         </div>
                     </div>

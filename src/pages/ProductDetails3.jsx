@@ -7,8 +7,16 @@ import tecladoymouse from '../assets/images/Kit-TecMouse-RD.png';
 import tecladoymouse2 from '../assets/images/Tecladoymouse2-removebg-preview.png';
 import tecladoymouse3 from '../assets/images/Tecladoymouse3-removebg-preview.png';
 import tecladoymouse4 from '../assets/images/Tecladoymouse4-removebg-preview.png';
+import { addToCart } from '../utils/cart.js';
+import Notification from "../components/Notification.jsx";
 
 export const ProductDetails3 = () => {
+  const [showNotification, setShowNotification] = useState(false);
+  
+          const handleAddToCart = (producto) => {
+              addToCart(producto);
+              setShowNotification(true);
+          };
   // Estados
   const [rating, setRating] = useState(0);
   const [comentario, setComentario] = useState("");
@@ -27,6 +35,12 @@ export const ProductDetails3 = () => {
 
   return (
     <>
+    {showNotification && (
+                <Notification
+                message="✅ Producto añadido al carrito"
+                onClose={() => setShowNotification(false)}
+                />
+            )}
       <div className="product-container">
         {/* Título del Producto */}
         <h2 className="product-title">
@@ -107,7 +121,19 @@ export const ProductDetails3 = () => {
             <p className="stock-info">Stock disponible: 15 unidades</p>
             <div className="button-container">
               <button className="buy-now">Comprar Ahora</button>
-              <button className="add-cart">Agregar al Carrito</button>
+            <button
+                                    className="add-cart"
+                                    onClick={() =>
+                                        handleAddToCart({
+                                        id: 3,
+                                        nombre: "Audífonos Gamer Razer Blackshark V2 X RZ0403240100R3M1 Classic Black",
+                                        precio: 699000,
+                                        imagen: tecladoymouse,
+                                        })
+                                    }
+                                    >
+                                    Agregar al Carrito
+                                </button>
             </div>
           </div>
         </div>

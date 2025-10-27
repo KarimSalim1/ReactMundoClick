@@ -1,4 +1,4 @@
-
+import { NavLink, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import Logo from "../assets/images/logo_mc.png";
 import logog from "../assets/images/google-icon.svg";
@@ -151,7 +151,7 @@ export const Register = () => {
               </div>
             </div>
             
-            <button type="submit" className="btn-registro">Crear Cuenta</button>
+            <NavLink to=" /* "><button type="submit" className="btn-registro">Crear Cuenta</button></NavLink>
             
             <div className="separador">
               <span>o regístrate con</span>

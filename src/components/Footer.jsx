@@ -24,7 +24,7 @@ export const Footer = () => {
                 <div className="contact-icon">📧</div>
                 <div className="contact-details">
                   <span>Email</span>
-                  <a href="mailto:info@mundoclick.com">mundoclick@gmail.com</a>
+                  <a href="mailto:info@mundoclick.com">mundoclick26@gmail.com</a>
                 </div>
               </div>
               <div className="contact-item">
@@ -81,8 +81,8 @@ export const Footer = () => {
             <h4>Enlaces Rápidos</h4>
             <ul className="footer-links">
               <li><a href="/">Inicio</a></li>
-              <li><a href="/category">Categorías</a></li>
-              <li><a href="/about">Nosotros</a></li>
+              <li><a href="*">Categorías</a></li>
+              <li><a href="/AboutUsPage">Nosotros</a></li>
               <li><a href="/contact">Contacto</a></li>
               <li><a href="/login">Iniciar sesión</a></li>
               <li><a href="/register">Registrarse</a></li>
