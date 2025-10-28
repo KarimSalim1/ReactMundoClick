@@ -48,24 +48,6 @@ export const ProductDetails3 = () => {
         </h2>
 
         <div className="product-details">
-          {/* Modales */}
-          <div id="modal1" className="modal">
-            <a href="#" className="close-modal">&times;</a>
-            <img src={tecladoymouse} alt="Producto Ampliado 1" />
-          </div>
-          <div id="modal2" className="modal">
-            <a href="#" className="close-modal">&times;</a>
-            <img src={tecladoymouse2} alt="Producto Ampliado 2" />
-          </div>
-          <div id="modal3" className="modal">
-            <a href="#" className="close-modal">&times;</a>
-            <img src={tecladoymouse3} alt="Producto Ampliado 3" />
-          </div>
-          <div id="modal4" className="modal">
-            <a href="#" className="close-modal">&times;</a>
-            <img src={tecladoymouse4} alt="Producto Ampliado 4" />
-          </div>
-
           {/* Carrusel controlado por radios */}
           <div className="carousel-container-single">
             {/* Radios */}

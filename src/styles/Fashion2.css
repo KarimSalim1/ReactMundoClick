@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Generales */
+/* ====== GENERALES ====== */
 :root {
     --colorPrincipal: #0D1321;
     --colorSecundario: #1D2D44;
@@ -34,17 +34,16 @@ h1 {
 }
 
 
-/* Header */
-.header_moda {
+/* ====== HEADER ====== */
+.fashion-hero {
     background: url("../assets/images/ropa/fondoMODA.jpg") center center/cover;
     background-repeat: no-repeat;
-    /* no-repeat: si la imagen es más chica no se repite */
     width: 100%;
-    height: 280px;
+    height: 290px;
     position: relative;
 }
 
-.titulo_moda {
+.fashion-hero__title-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -56,30 +55,27 @@ h1 {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-
 /* ====== SLIDER ====== */
-.slider {
+
+.image-slider {
     width: 100%;
     max-width: 1900px;
     margin: 2rem auto;
     overflow: hidden;
-    /* evita scroll horizontal */
 }
 
-.slide-container {
+.image-slider__track {
     display: flex;
     width: calc(200px * 16);
-    /* cantidad de slides * ancho */
     animation: scroll 20s linear infinite;
 }
 
-.slide {
+.image-slider__item {
     flex: 0 0 200px;
-    /* cada slide mide 200px */
     text-align: center;
 }
 
-.slide img {
+.image-slider__item img {
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -87,23 +83,17 @@ h1 {
 
 /* Animación infinita */
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-        /* mueve la mitad, porque duplicaste las imágenes */
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* ====== SUBTÍTULO ====== */
-.subtitulo {
+.section-divider {
     text-align: center;
     margin: 3rem 0 2rem 0;
 }
 
-.subtitulo h2 {
+.section-divider h2 {
     font-size: 2rem;
     font-weight: 600;
     color: #ffffff;
@@ -113,30 +103,28 @@ h1 {
 }
 
 /* ====== PRODUCTOS ====== */
-
-.productos {
+.product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
-    padding: 0 1rem 2rem;
+    padding: 0 2rem;
     margin: 0 auto;
     max-width: 1000px;
 }
 
-.producto {
+.product-card {
     background: #fff;
-    padding: 1rem 1rem 3.5rem;
-    /* 👈 extra espacio abajo */
+    padding: 1.5rem 1rem 3.5rem;
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
 }
 
-.producto img {
+.product-card img {
     width: 150px;
     height: 180px;
     object-fit: contain;
@@ -144,47 +132,45 @@ h1 {
     transition: transform 0.4s ease;
 }
 
-.producto h3 {
-    font-size: 1.8rem;
+.product-card__title {
+    font-size: 1.5rem;
     color: #000000;
     margin-bottom: 0.5rem;
 }
 
 /* Hover principal */
-.producto:hover {
+.product-card:hover {
     transform: translateY(-12px) scale(1.05);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     background: linear-gradient(145deg, #ffffff, #f0f0f0);
 }
 
-.producto:hover img {
+.product-card:hover img {
     transform: scale(1.1);
 }
 
-/* Botón oculto que aparece al hover */
-.producto::after {
+.product-card::after {
     content: "Ver más";
     position: absolute;
     bottom: -105px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgb(19, 163, 246);
+    background: #00243d;
     color: rgb(255, 255, 255);
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
     font-size: 0.95rem;
-    font-weight: bold;
     opacity: 0;
     transition: all 0.4s ease;
 }
 
-.producto:hover::after {
+.product-card:hover::after {
     bottom: 15px;
     opacity: 1;
 }
 
-
 /* ====== PAGINACIÓN ====== */
+
 .paginacion {
     display: flex;
     justify-content: center;
@@ -213,12 +199,12 @@ h1 {
 }
 
 /* ====== BOTÓN CATEGORÍAS ====== */
-.mov_categorias {
+.category-nav-button {
     text-align: center;
     margin: 3rem 0;
 }
 
-.mov_categorias button {
+.category-nav-button button {
     background: #0077cc;
     color: #fff;
     padding: 0.8rem 1.5rem;
@@ -230,80 +216,32 @@ h1 {
     transition: background 0.3s ease;
 }
 
-.mov_categorias button:hover {
+.category-nav-button button:hover {
     background: #005fa3;
 }
 
-.mov_categorias a {
+.category-nav-button a {
     color: inherit;
     text-decoration: none;
 }
 
 /* ========== RESPONSIVE ========== */
-
-/* Para pantallas más grandes */
-@media (min-width: 1024px) {
-    .productos {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1300px; /* controlás el ancho total */
-        gap: 3rem;
-    }
-}
-
 @media (max-width: 1024px) {
-    .titulo_moda {
-        font-size: 2.5rem;
-    }
-
-    .producto {
-        transform: translateY(-8px) scale(1);
-    }
-    .productos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    .fashion-hero__title-box { font-size: 2.5rem;}
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .titulo_moda {
-        font-size: 2rem;
-    }
-
-    .productos {
-        grid-template-columns: 1fr;
-    }
-
-    .producto img {
-        width: 120px;
-        height: 150px;
-    }
+    h1 { font-size: 2.5rem; }
+    .fashion-hero__title-box { font-size: 2rem; }
+    .product-grid { grid-template-columns: 1fr; }
+    .product-card img { width: 120px; height: 150px; }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    .titulo_moda {
-        font-size: 1.5rem;
-    }
-
-    .productos {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .producto img {
-        width: 100px;
-        height: 120px;
-    }
-
-    .paginacion button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
+    h1 { font-size: 2rem; }
+    .fashion-hero__title-box { font-size: 1.5rem; }
+    .product-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .product-card img { width: 100px; height: 120px; }
+    .pagination-controls button { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
 }
