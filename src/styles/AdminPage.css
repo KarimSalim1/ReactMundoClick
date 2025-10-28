@@ -1,0 +1,171 @@
+
+:root {
+    --colorPrincipal: #0D1321;
+    --colorSecundario: #1D2D44;
+    --colorTerciario: #3E5C76;
+    --colorCuarto: #748CAB;
+    --colorQuinto: #F0EBD8;
+    --colorAcento: #F28C38;
+    --fuentePrincipal: 'Poppins', sans-serif;
+}
+
+.admin-page-wrapper {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    background-color: var(--colorPrincipal); /* Color de fondo general de la página */
+    min-height: 100vh; /* Asegura que la página sea al menos de altura completa */
+}
+
+
+.admin-page-container {
+    max-width: 700px; 
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 30px;
+    background-color: #121a2c;
+    color: var(--colorQuinto); 
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--colorSecundario); 
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+}
+
+.admin-page-container h2 {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    color: var(--colorAcento);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--colorTerciario);
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Estilos de las etiquetas (Labels) */
+.admin-page-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--colorCuarto);
+    font-size: 0.95rem;
+}
+
+/* Estilos de los inputs y textareas */
+.admin-page-container input[type="text"],
+.admin-page-container input[type="number"],
+.admin-page-container input[type="url"],
+.admin-page-container textarea,
+.admin-page-container select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px 0;
+    
+    background-color: var(--colorSecundario);
+    color: var(--colorQuinto);
+    border: 1px solid var(--colorTerciario);
+    border-radius: 0.5rem;
+    box-sizing: border-box; 
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.admin-page-container input:focus,
+.admin-page-container textarea:focus,
+.admin-page-container select:focus {
+    outline: none;
+    border-color: var(--colorAcento);
+    box-shadow: 0 0 0 2px rgba(242, 140, 56, 0.5);
+}
+
+.admin-page-container textarea {
+    resize: vertical;
+}
+
+.admin-page-container small {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    color: var(--colorCuarto);
+    font-size: 0.85rem;
+}
+
+.admin-page-container .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 5px;
+}
+
+.admin-page-container .form-col {
+    flex: 1;
+}
+
+.admin-page-container .form-row:first-of-type .form-col:first-child {
+    flex: 3;
+}
+
+.admin-page-container .form-row:first-of-type .form-col:last-child {
+    flex: 1;
+}
+
+.submit-button {
+    background-color: var(--colorAcento); 
+    color: var(--colorPrincipal);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 25px;
+}
+
+.submit-button:hover {
+    background-color: #d67b32;
+    transform: translateY(-2px);
+}
+
+.feedback-message {
+    padding: 15px;
+    border-radius: 0.5rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-family: var(--fuentePrincipal);
+}
+
+.feedback-success {
+    background-color: #0b2e13;
+    color: #c3e6cb;
+    border: 1px solid #155724;
+}
+
+.feedback-loading {
+    background-color: #3e3e00;
+    color: #ffeeba;
+    border: 1px solid #856404;
+}
+
+@media (max-width: 768px) {
+    /* El wrapper maneja el padding superior/inferior */
+    .admin-page-wrapper {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+    
+    /* La card mantiene un pequeño margen lateral en móvil */
+    .admin-page-container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding: 20px; /* Reducir padding interno en móvil */
+    }
+
+    .admin-page-container .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .admin-page-container .form-row:first-of-type .form-col:first-child,
+    .admin-page-container .form-row:first-of-type .form-col:last-child {
+        flex: 1;
+    }
+}

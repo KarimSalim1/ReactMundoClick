@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
+
 import { ErrorPage } from './pages/ErrorPage'
 import { HomePage } from './pages/HomePage'
 import { Contact } from './pages/Contact'
@@ -15,38 +16,57 @@ import { ProductDetails3 } from './pages/ProductDetails3'
 import { ChatMundo } from './pages/ChatMundo.jsx'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
+import  AdminPage  from './pages/AdminPage.jsx' 
+
+// componentes de layout
 import { Navigate } from './components/Navigate'
 import { Footer } from './components/Footer'
+
+// lógica de autenticación
+import { AuthProvider } from './pages/AuthContext.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx' 
+
 import botIcono from "./assets/images/bot.png";
 import './App.css'
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navigate />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/fashion1' element={<Fashion1 />} />
-        <Route path='/fashion2' element={<Fashion2 />} />
-        <Route path='/technology1' element={<Technology1 />} />
-        <Route path='/technology2' element={<Technology2 />} />
-        <Route path="/AboutUsPage" element={<AboutUsPage />} />
-        <Route path="/cartDetails" element={<CartDetails/>} />
-        <Route path="/ProductDetails" element={<ProductDetails />} />
-        <Route path="/ProductDetails2" element={<ProductDetails2 />} />
-        <Route path='/productDetails3' element={<ProductDetails3 />} />
-        <Route path="/chat" element={<ChatMundo />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
-      <Link to="/chat" className="boton-chat-ia">
-        <img src={botIcono} alt="Chat IA MundoClick" />
-      </Link>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navigate />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route 
+            path='/admin' 
+            element={
+              <ProtectedRoute>
+                <AdminPage /> 
+              </ProtectedRoute>
+            } 
+          />
+          <Route path='/fashion1' element={<Fashion1 />} />
+          <Route path='/fashion2' element={<Fashion2 />} />
+          <Route path='/technology1' element={<Technology1 />} />
+          <Route path='/technology2' element={<Technology2 />} />
+          <Route path="/AboutUsPage" element={<AboutUsPage />} />
+          <Route path="/cartDetails" element={<CartDetails/>} />
+          <Route path="/ProductDetails" element={<ProductDetails />} />
+          <Route path="/ProductDetails2" element={<ProductDetails2 />} />
+          <Route path='/productDetails3' element={<ProductDetails3 />} />
+          <Route path="/chat" element={<ChatMundo />} />
+          
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+        <Link to="/chat" className="boton-chat-ia">
+          <img src={botIcono} alt="Chat IA MundoClick" />
+        </Link>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 

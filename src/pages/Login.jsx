@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from "../assets/images/logo_mc.png";
 import "../styles/Login.css";
-import { users } from "../data/users";
+import { useAuth } from '../pages/AuthContext.jsx';
 
 export const Login = () => {
   const navigate = useNavigate();
+  // Importa la función 'login' del contexto
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -22,16 +24,16 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError('');
 
-    const user = users.find(
-      (u) => u.email === formData.email && u.password === formData.password
-    );
+    // Usar la función 'login' del contexto para autenticar y actualizar el estado
+    const success = login(formData.email, formData.password);
 
-    if (user) {
-      localStorage.setItem('usuarioLogueado', JSON.stringify(user));
-      navigate('/cartdetails'); // Redirige al carrito
+    if (success) {
+
+      navigate('/admin');
     } else {
-      setError('Usuario o contraseña incorrectos');
+      setError('Su correo electrónico y contraseña no coinciden. Inténtelo de nuevo.");');
     }
   };
 
@@ -84,16 +86,16 @@ export const Login = () => {
                 required
               />
               <span
-                className={`toggle-password ${showPassword ? 'visible' : ''}`}
+                className="toggle-password"
                 onClick={togglePasswordVisibility}
               >
-                {showPassword ? 'Ocultar' : 'Mostrar'}
+                <i className={showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}></i>
               </span>
             </div>
 
             {error && <p className="error-login">{error}</p>}
 
-            <button type="submit" className="boton-login">Iniciar Sesión</button>
+            <button type="submit" className="boton-login">Iniciar sesión</button>
           </form>
         </div>
       </div>
