@@ -16,116 +16,116 @@ export const Fashion1 = () => {
   return (
     <>
       {/* Sección título */}
-      <section className="header_moda">
-        <div className="titulo_moda">
+      <section className="fashion-hero">
+        <div className="fashion-hero__title-box">
           <h1>Moda</h1>
         </div>
       </section>
 
       {/* Slider */}
-      <section className="slider">
-        <div className="slide-container">
-          <div className="slide">
+      <section className="image-slider">
+        <div className="image-slider__track">
+          <div className="image-slider__item">
             <img src={camperaLOGOremovebgpreview} alt="image1" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={remeraLOGOremovebgpreview} alt="image2" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={jeansLOGOremovebgpreview} alt="image3" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camperaITEM1} alt="image4" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camperaITEM2removebgpreview} alt="image5" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={remeraNegra1removebgpreview} alt="image6" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camisaRojaremovebgpreview} alt="image7" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={jeansLOGOremovebgpreview} alt="image8" />
           </div>
 
           {/* Repetimos imágenes para loop */}
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camperaLOGOremovebgpreview} alt="image1" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={remeraLOGOremovebgpreview} alt="image2" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={jeansLOGOremovebgpreview} alt="image3" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camperaITEM1} alt="image4" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camperaITEM2removebgpreview} alt="image5" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={remeraNegra1removebgpreview} alt="image6" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={camisaRojaremovebgpreview} alt="image7" />
           </div>
-          <div className="slide">
+          <div className="image-slider__item">
             <img src={jeansLOGOremovebgpreview} alt="image8" />
           </div>
         </div>
       </section>
 
       {/* Subtítulo */}
-      <section className="subtitulo">
+      <section className="section-divider">
         <h2>Productos</h2>
       </section>
 
       {/* Productos */}
-      <section className="productos">
-        <div className="producto">
+      <section className="product-grid">
+        <div className="product-card">
           {/* <Link to={}> */}
             <img src={remeraLOGOremovebgpreview} alt="remeras" />
-            <h3 className='producto-titulo'>Remeras</h3>
+            <h3 className='product-card__title'>Remeras</h3>
           {/* </Link> */}
         </div>
 
-        <div className="producto">
+        <div className="product-card">
           {/* <Link to= {} > */}
             <img src={camperaLOGOremovebgpreview} alt="camperas" />
-            <h3 className='producto-titulo'>Camperas</h3>
+            <h3 className='product-card__title'>Camperas</h3>
           {/* </Link> */}
         </div>
 
-        <div className="producto">
+        <div className="product-card">
           <img src={jeansLOGOremovebgpreview} alt="jeans" />
-          <h3 className='producto-titulo'>Jeans</h3>
+          <h3 className='product-card__title'>Jeans</h3>
         </div>
 
-        <div className="producto">
+        <div className="product-card">
           <img src={lentesLOGOremovebgpreview} alt="lentes" />
-          <h3 className='producto-titulo'>Lentes</h3>
+          <h3 className='product-card__title'>Lentes</h3>
         </div>
 
-        <div className="producto">
+        <div className="product-card">
           <img src={zapatosLOGOremovebgpreview} alt="zapatos" />
-          <h3 className='producto-titulo'>Zapatos</h3>
+          <h3 className='product-card__title'>Zapatos</h3>
         </div>
 
-        <div className="producto">
+        <div className="product-card">
           <img src={zapatillasremovebgpreview} alt="zapatillas" />
-          <h3 className='producto-titulo'>Zapatillas</h3>
+          <h3 className='product-card__title'>Zapatillas</h3>
         </div>
       </section>
-
+      
       {/* Paginación */}
       <nav className="paginacion">
         <button><Link to="/fashion1">« Anterior</Link></button>
         <button><Link to="/fashion1">1</Link></button>
-        <button><Link to="/technology2">2</Link></button>
-        <button><Link to="/technology2">Siguiente »</Link></button>
+        <button><Link to="/fashion2">2</Link></button>
+        <button><Link to="/fashion2">Siguiente »</Link></button>
       </nav>
 
       {/* Botón categorías */}
