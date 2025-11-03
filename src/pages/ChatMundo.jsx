@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/ChatMundo.css"; // si querés darle estilo aparte
-import { mundoclick } from "../helper/configIa";
+import { mundoclick } from "../helper/configIA";
 
 export const ChatMundo = () => {
   const [input, setInput] = useState("");
