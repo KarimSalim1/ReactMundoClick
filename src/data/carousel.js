@@ -1,12 +1,12 @@
 import kitTecMouseAuri from '../assets/images/kitTecMouseAuri.png';
-import teclado1 from '../assets/images/teclado1fb-removebg-preview.png';
+import teclado1 from '../assets/images/Teclado1fb-removebg-preview.png';
 import mouseRD3 from '../assets/images/mouseDragon3.png';
 import auriGamer from '../assets/images/auriGamer.png';
 import aurisHyper from '../assets/images/aurisHyper.png';
 import auriSONY from '../assets/images/aurisSONY-removebg-preview.png';
 import auriJBL from '../assets/images/auriJBL.png';
 import aurijJBLRojo from '../assets/images/aurisJBL_ROJO-removebg-preview.png';
-import iphone12 from '../assets/images/Iphone12-removebg-preview.png';
+import iphone12 from '../assets/images/iphone12-removebg-preview.png';
 import s24ultra from '../assets/images/s24Ultra-removebg-preview.png';
 
 export const productosSimilares = [
