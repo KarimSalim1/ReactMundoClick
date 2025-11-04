@@ -6,7 +6,7 @@ import celulares from '../assets/images/celularfb-removebg-preview.png';
 import smartwatch from '../assets/images/relojfb-removebg-preview.png';
 import computadoras from '../assets/images/compufb-removebg-preview.png';
 import teclados from '../assets/images/Teclado1fb-removebg-preview.png';
-import iphoneAzul from '../assets/images/iphoneAZUL-removebg-preview.png';
+import iphoneAzul from '../assets/images/iphoneazul-removebg-preview.png';
 import iphone12 from '../assets/images/Iphone12-removebg-preview.png';
 import s24ultra from '../assets/images/s24Ultra-removebg-preview.png';
 import aurijJBL from '../assets/images/auriJBL.png';
