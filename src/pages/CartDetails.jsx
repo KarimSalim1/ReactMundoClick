@@ -1,13 +1,14 @@
-import '../styles/CartDetails.css'
 import { useState, useEffect } from "react";
 import { getCart, removeFromCart } from "../utils/cart.js";
 import { NavLink } from "react-router-dom";
+import '../styles/cartDetails.css';
 
 export const CartDetails = () => {
   const [carrito, setCarrito] = useState([]);
 
   useEffect(() => {
     setCarrito(getCart());
+
   }, []);
 
   const eliminarProducto = (id) => {
