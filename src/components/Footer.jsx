@@ -81,8 +81,7 @@ export const Footer = () => {
             <h4>Enlaces Rápidos</h4>
             <ul className="footer-links">
               <li><a href="/">Inicio</a></li>
-              <li><a href="*">Categorías</a></li>
-              <li><a href="/AboutUsPage">Nosotros</a></li>
+              <li><a href="/AboutUsPage">Acerca de nosotros</a></li>
               <li><a href="/contact">Contacto</a></li>
               <li><a href="/login">Iniciar sesión</a></li>
               <li><a href="/register">Registrarse</a></li>

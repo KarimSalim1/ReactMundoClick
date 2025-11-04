@@ -41,7 +41,7 @@ export const ProductDetails = () => {
             )}
             <div className="product-container">
                 {/* Título del Producto */}
-                <h2 className="product-title">Apple iPhone 14 (128 GB) - Blanco - Azul Cielo</h2>
+                <h2 className="product-title">Apple iPhone 14 (128 GB)</h2>
 
                 {/* Sección principal: Imagen y Datos del Producto */}
                 <div className="product-details">
