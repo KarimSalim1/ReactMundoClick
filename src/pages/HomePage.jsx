@@ -31,7 +31,7 @@ export const HomePage = () => {
         id: product.id,
         nombre: product.nombre,
         imagen: product.imagen,
-        link: product.link || "/ProductDetails" // Valor por defecto si no tiene link
+        link: product.link || "/*" // 
       }));
       
       setProductos(formattedProducts);
@@ -41,17 +41,17 @@ export const HomePage = () => {
         { id: 1, nombre: "Auriculares Gamer", imagen: producto1, link: "/ProductDetails2" },
         { id: 2, nombre: "Apple iPhone 14", imagen: producto2, link: "/ProductDetails" },
         { id: 3, nombre: "Teclado Inalámbrico", imagen: producto3, link: "/productDetails3" },
-        { id: 4, nombre: "Micrófono Gamer", imagen: producto4, link: "/ProductDetails" },
+        { id: 4, nombre: "Micrófono Gamer", imagen: producto4, link: "/*" },
       ];
       
       setProductos(defaultProducts);
       
-      // Guardar los productos por defecto en localStorage para futuras visitas
+     
       const productsForStorage = defaultProducts.map(product => ({
         id: product.id,
         nombre: product.nombre,
         imagen: product.imagen,
-        link: product.link // ¡Agregar el link aquí también!
+        link: product.link 
       }));
       
       localStorage.setItem('products', JSON.stringify(productsForStorage));
