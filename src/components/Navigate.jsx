@@ -22,7 +22,6 @@ export const Navigate = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <NavLink to="/" className="nav-link-custom">Inicio</NavLink>
-                        <NavLink to="/category" className="nav-link-custom">Categorías</NavLink>
                         <NavLink to="/aboutUsPage" className="nav-link-custom">Acerca de Nosotros</NavLink>
                         <NavLink to="/contact" className="nav-link-custom">Contacto</NavLink>
                     </Nav>

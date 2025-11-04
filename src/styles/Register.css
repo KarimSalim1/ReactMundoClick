@@ -318,8 +318,10 @@
 }
 /* Responsive */
 @media (max-width: 768px) {
+
   .contenido-registro {
     flex-direction: column;
+
   }
   
   .marca-registro {

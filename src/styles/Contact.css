@@ -1,46 +1,70 @@
-
+/* === SECCIÓN PRINCIPAL === */
 #contact-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
-  background: linear-gradient(135deg, #0a1320, #0f172a);
+  min-height: 110vh;
+  background: linear-gradient(135deg, #0a1320, #0f172a, #1e293b);
+  background-size: 200% 200%;
+  animation: fondoAnimado 8s ease infinite;
   padding: 40px 20px;
   font-family: "Poppins", sans-serif;
 }
 
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === CONTENEDOR === */
 #contact-section {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  padding: 45px 35px;
   width: 100%;
   max-width: 600px;
   animation: aparecer 0.8s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === TÍTULO === */
 #contact-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: #ffffff;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  margin-bottom: 35px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   position: relative;
 }
 
 #contact-title::after {
   content: "";
   position: absolute;
-  bottom: -8px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 90px;
   height: 3px;
-  background-color: #120d58;
+  background: linear-gradient(90deg, #00eaff, #0096c7);
   border-radius: 2px;
 }
 
+/* === CAMPOS === */
 .contact-field {
   display: flex;
   flex-direction: column;
@@ -48,58 +72,91 @@
 }
 
 .contact-field label {
-  color: #cbd5e1;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .contact-field input,
 .contact-field select,
 .contact-field textarea {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid #334155;
-  color: #000000;
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 1rem;
   transition: all 0.3s ease;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #94a3b8;
 }
 
 .contact-field input:focus,
 .contact-field select:focus,
 .contact-field textarea:focus {
-  border-color: #00b4d8;
+  border-color: #000000;
   outline: none;
-  box-shadow: 0 0 8px rgba(0, 180, 216, 0.4);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  background: rgba(6, 6, 53, 0.712);
 }
 
+/* === BOTÓN === */
 #contact-submit {
   width: 100%;
-  background-color: #120d58;
-  color: white;
-  font-weight: 600;
+  background: linear-gradient(90deg, #0096c7, #00eaff);
+  color: #0f172a;
+  font-weight: 700;
   border: none;
-  border-radius: 10px;
-  padding: 12px;
-  font-size: 1rem;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1.05rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  letter-spacing: 1px;
 }
 
 #contact-submit:hover {
-  background-color: #0096c7;
-  transform: scale(1.02);
-  box-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+  transform: scale(1.04);
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.6);
 }
 
-
-
-@media (max-width: 600px) {
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
   #contact-section {
-    padding: 30px 20px;
+    padding: 35px 25px;
+  }
+
+  #contact-title {
+    font-size: 1.9rem;
+  }
+
+  #contact-submit {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact-section {
+    padding: 25px 18px;
   }
 
   #contact-title {
     font-size: 1.6rem;
+  }
+
+  .contact-field label {
+    font-size: 0.9rem;
+  }
+
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea {
+    font-size: 0.9rem;
+    padding: 10px 12px;
   }
 }
