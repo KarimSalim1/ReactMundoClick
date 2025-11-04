@@ -44,7 +44,7 @@ export const ProductDetails3 = () => {
       <div className="product-container">
         {/* Título del Producto */}
         <h2 className="product-title">
-          Kit Redragon Teclado Y Mouse K617rgb Sp+m724 Negro S143
+          Kit Redragon Teclado Y Mouse K617rgb
         </h2>
 
         <div className="product-details">

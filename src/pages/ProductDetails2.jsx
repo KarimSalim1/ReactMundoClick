@@ -44,7 +44,7 @@ export const ProductDetails2 = () => {
             <div className="product-container">
                 {/* Título */}
                 <h2 className="product-title">
-                    Audífonos Gamer Razer Blackshark V2 X RZ0403240100R3M1 Classic Black
+                    Audífonos Gamer Razer Blackshark V2
                 </h2>
 
                 {/* Sección principal */}
@@ -149,24 +149,6 @@ export const ProductDetails2 = () => {
                         EL SONIDO DE LOS ESPORTS
                         Haz frente a la competencia con unos cascos para Esports ligeros que se crecen ante la presión. Los Razer BlackShark V2 X son una amenaza triple por su sonido increíble, nitidez del micrófono superior y un aislamiento acústico inmejorable acreditado por profesionales.
                         <br />
-                        DIAFRAGMAS DE 50 MM RAZER TRIFORCE
-                        Nuestro diseño patentado permite a nuestros ingenieros ajustar cada diafragma de forma personalizada, lo cual hace que las réplicas individuales de frecuencias de audio altas, medias y bajas ofrezcan un sonido más claro, agudos más intensos y graves más potentes.
-                        <br />
-                        MICRÓFONO CARDIOIDE RAZER HYPERCLEAR
-                        El micrófono flexible, que ofrece captación de voz y cancelación de ruido, tiene una cubierta optimizada que adopta un diseño más abierto para obstrucción mínima, lo que mejora la nitidez para una recreación más aproximada a tu voz real.
-                        <br />
-                        CANCELACIÓN PASIVA DE RUIDO AVANZADA
-                        Ya sea el clamor de la multitud o el zumbido de tu equipo, podrás aislarte del ruido y disfrutar de una concentración sin interrupciones con los auriculares especialmente cerrados que cubren por completo las orejas, gracias a las almohadillas afelpadas que forman un sellado más hermético para mayor aislamiento del sonido.
-                        <br />
-                        LIGEREZA Y COMODIDAD
-                        Con tan solo 240 gramos, casi ni te acordarás de que los llevas puestos en tus maratones de juego. Los auriculares son más cómodos gracias al relleno acolchado más grueso y a las almohadillas de espuma viscoelástica envueltas en una combinación de tejido transpirable y piel sintética afelpada.
-                        <br />
-                        SONIDO ENVOLVENTE 7.1
-                        Aumenta tu nivel de concentración y no dejes que nada se escape a tus oídos con el audio posicional exacto, que te permite localizar intuitivamente de dónde viene cada sonido.
-                        <br />
-                        COMPATIBILIDAD MULTIPLATAFORMA
-                        Estos auriculares ligeros para Esports usan un conector de 3,5 mm y son compatibles con las plataformas más populares, lo que te permite competir en PC, Mac, PS4, Xbox One, Nintendo Switch y dispositivos móviles.
-                        <br />
                         ESPECIFICACIONES TÉCNICAS
                         <br />
                         A simple vista
@@ -181,41 +163,15 @@ export const ProductDetails2 = () => {
                         <br />
                         - Sonido envolvente 7.1 para una experiencia de audio posicional exacta
                         <br />
-                        Auriculares
-                        <br />
-                        - Frecuencia de respuesta: 12 Hz–28 kHz
-                        <br />
-                        - Sensibilidad (a 1 KHz): 100 dBSPL/mW, 1 KHz
-                        <br />
-                        - Diafragmas: Diafragma personalizado dinámico de 50 mm
-                        <br />
-                        - Diámetro interno de la almohadilla: 63 mm x 43 mm / 2,48" x 1,69"
-                        <br />
                         - Tipo de conexión: Analógica 3,5 mm
                         <br />
                         - Longitud del cable: 1,3 m/4,27 ft
                         <br />
-                        - Peso aproximado: 240 g/0,53 lb.
-                        <br />
-                        - Almohadillas ovaladas: Almohadillas de espuma viscoelástica transpirables
-                        <br />
-                        Micrófono
-                        <br />
-                        - Frecuencia de respuesta: 100 Hz–10 kHz
+                        - Frecuencia de respuesta: 100 Hz-10 kHz
                         <br />
                         - Relación señal/ruido: 60 dB
                         <br />
                         - Sensibilidad (a 1 kHz): -42 dB V/Pa, 1 KHz
-                        <br />
-                        - Patrón de captación: Unidireccional
-                        <br />
-                        Control en el auricular
-                        <br />
-                        - Aumento/disminución del volumen
-                        <br />
-                        - Conmutador de activación/desactivación del silencio del micrófono
-                        <br />
-                        Uso de audio
                         <br />
                         - Uso de audio: Dispositivos con conector de audio de 3,5 mm
                         <br />

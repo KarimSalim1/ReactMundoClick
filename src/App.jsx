@@ -44,6 +44,7 @@ function App() {
       </Routes>
       <Link to="/chat" className="boton-chat-ia">
         <img src={botIcono} alt="Chat IA MundoClick" />
+        <span className="mensaje-chat">¡Resolvé tus dudas con nuestra IA!</span>
       </Link>
       <Footer />
     </BrowserRouter>

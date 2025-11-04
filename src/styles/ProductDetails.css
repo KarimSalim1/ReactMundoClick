@@ -17,7 +17,7 @@ main {
 }
 
 .product-container {
-    max-width: 1000px;
+
     margin: 10% auto 0;
     padding: 20px;
     overflow: hidden;
@@ -37,7 +37,7 @@ main {
 .product-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
     background: var(--colorSecundario);
     padding: 40px;
     border-radius: 10px;
@@ -552,6 +552,10 @@ main {
 
 /* RESPONSIVE -------------*/
 @media (max-width: 768px) {
+    .product-title {
+        margin-top: 2rem;
+    }
+
     .product-details {
         flex-direction: column;
     }
