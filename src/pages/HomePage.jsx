@@ -6,7 +6,7 @@ import moda from "../assets/images/moda.png";
 import tecnologia from "../assets/images/tecnologia.png";
 import hogar from "../assets/images/hogar.png";
 import producto1 from "../assets/images/producto1.png";
-import producto2 from "../assets/images/Iphone12-removebg-preview.png";
+import producto2 from "../assets/images/iphone12-removebg-preview.png";
 import producto3 from "../assets/images/producto3.png";
 import producto4 from "../assets/images/producto4.png";
 import { NavLink, Link } from 'react-router-dom';
