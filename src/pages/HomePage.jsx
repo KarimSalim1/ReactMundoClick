@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import '../styles/HomePage.css';
 import cap1 from "../assets/images/cap1.png";
@@ -15,14 +15,48 @@ import producto4 from "../assets/images/producto4.png";
 export const HomePage = () => {
   // 🔎 Estado del buscador
   const [busqueda, setBusqueda] = useState("");
+  // 🔹 Estado para productos (ahora cargados desde localStorage)
+  const [productos, setProductos] = useState([]);
 
-  // 🔹 Productos destacados simulados
-  const productos = [
-    { id: 1, nombre: "Auriculares Gamer", imagen: producto1, link: "/ProductDetails2" },
-    { id: 2, nombre: "Apple iPhone 14", imagen: producto2, link: "/ProductDetails" },
-    { id: 3, nombre: "Teclado Inalámbrico", imagen: producto3, link: "/productDetails3" },
-    { id: 4, nombre: "Micrófono Gamer", imagen: producto4, link: "/*" },
-  ];
+  // Cargar productos desde localStorage al iniciar
+  useEffect(() => {
+    const savedProducts = localStorage.getItem('products');
+    
+    if (savedProducts) {
+      // Si hay productos en localStorage, usarlos
+      const productsFromStorage = JSON.parse(savedProducts);
+      
+      // Mapear los productos del localStorage al formato que necesita tu HomePage
+      const formattedProducts = productsFromStorage.map(product => ({
+        id: product.id,
+        nombre: product.nombre,
+        imagen: product.imagen,
+        link: product.link || "/ProductDetails" // Valor por defecto si no tiene link
+      }));
+      
+      setProductos(formattedProducts);
+    } else {
+      // Si no hay productos en localStorage, usar los productos por defecto
+      const defaultProducts = [
+        { id: 1, nombre: "Auriculares Gamer", imagen: producto1, link: "/ProductDetails2" },
+        { id: 2, nombre: "Apple iPhone 14", imagen: producto2, link: "/ProductDetails" },
+        { id: 3, nombre: "Teclado Inalámbrico", imagen: producto3, link: "/productDetails3" },
+        { id: 4, nombre: "Micrófono Gamer", imagen: producto4, link: "/ProductDetails" },
+      ];
+      
+      setProductos(defaultProducts);
+      
+      // Guardar los productos por defecto en localStorage para futuras visitas
+      const productsForStorage = defaultProducts.map(product => ({
+        id: product.id,
+        nombre: product.nombre,
+        imagen: product.imagen,
+        link: product.link // ¡Agregar el link aquí también!
+      }));
+      
+      localStorage.setItem('products', JSON.stringify(productsForStorage));
+    }
+  }, []);
 
   // 🔍 Filtrado dinámico
   const productosFiltrados = productos.filter((p) =>
@@ -74,8 +108,6 @@ export const HomePage = () => {
           />
         </section>
 
-        
-
         {/* ---------- DESTACADOS ---------- */}
         <section id="destacados" className="container py-5">
           <h2 className="seccion-titulo text-center mb-5">Destacados de la semana</h2>
@@ -84,7 +116,21 @@ export const HomePage = () => {
               productosFiltrados.map((p) => (
                 <div key={p.id} className="col">
                   <div className="tarjeta-producto card text-dark h-100 shadow-lg">
-                    <img src={p.imagen} className="card-img-top" alt={p.nombre} />
+                    <img 
+                      src={p.imagen} 
+                      className="card-img-top" 
+                      alt={p.nombre}
+                      style={{ 
+                        height: '200px', 
+                        objectFit: 'cover',
+                        backgroundColor: '#f8f9fa'
+                      }}
+                      onError={(e) => {
+                        // Si la imagen no carga, mostrar un placeholder bonito
+                        e.target.src = 'https://via.placeholder.com/300x200/6c757d/ffffff?text=Imagen+no+disponible';
+                        e.target.alt = 'Imagen no disponible';
+                      }}
+                    />
                     <div className="card-body text-center">
                       <h5 className="card-title">{p.nombre}</h5>
                       <NavLink to={p.link} className="btn btn-outline-primary w-100">
@@ -95,11 +141,10 @@ export const HomePage = () => {
                 </div>
               ))
             ) : (
-              <p className="text-center ">No se encontraron productos</p>
+              <p className="text-center">No se encontraron productos</p>
             )}
           </div>
         </section>
-
 
         {/* ---------- CATEGORÍAS ---------- */}
         <section id="categorias" className="container py-5">

@@ -146,6 +146,27 @@
     font-size: 1.2rem;
 }
 
+.btn-logout {
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    color: #F0EBD8 !important;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+.btn-logout:hover {
+    color: #0D1321 !important;
+    background: #F0EBD8;
+    border-color: #F0EBD8 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(240, 235, 216, 0.3);
+ }
+
+
+
 .cart-count {
     position: absolute;
     top: -5px;
