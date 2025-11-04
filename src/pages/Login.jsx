@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import Logo from "../assets/images/logo_mc.png";
 import "../styles/Login.css";
-import { users } from "../data/users";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -23,13 +24,10 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const user = users.find(
-      (u) => u.email === formData.email && u.password === formData.password
-    );
+    const result = login(formData.email, formData.password);
 
-    if (user) {
-      localStorage.setItem('usuarioLogueado', JSON.stringify(user));
-      navigate('/cartdetails'); // Redirige al carrito
+    if (result.success) {
+      navigate('/'); // Redirige al home después del login
     } else {
       setError('Usuario o contraseña incorrectos');
     }
