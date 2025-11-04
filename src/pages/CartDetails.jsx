@@ -8,6 +8,7 @@ export const CartDetails = () => {
 
   useEffect(() => {
     setCarrito(getCart());
+    
   }, []);
 
   const eliminarProducto = (id) => {
