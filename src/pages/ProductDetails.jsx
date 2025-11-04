@@ -1,12 +1,12 @@
 import { productosSimilares, productosRecomendados } from "../data/carousel.js";
 import CarouselAction from '../components/CarouselApp.jsx'
-import '../styles/ProductDetails.css'
-import iphone12 from "../assets/images/Iphone12-removebg-preview.png";
+import iphone12 from "../assets/images/iphone12-removebg-preview.png";
 import iphone from "../assets/images/iphone14frente.png";
 import iphoneAzul from "../assets/images/iphoneazul.png";
 import { addToCart } from '../utils/cart.js';
 import React, { useState } from "react";
 import Notification from "../components/Notification.jsx";
+import '../styles/ProductDetails.css'
 
 export const ProductDetails = () => {
     const [showNotification, setShowNotification] = useState(false);
