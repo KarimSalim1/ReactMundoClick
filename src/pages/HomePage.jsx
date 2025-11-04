@@ -31,7 +31,7 @@ export const HomePage = () => {
         id: product.id,
         nombre: product.nombre,
         imagen: product.imagen,
-        link: product.link || "/ProductDetails" // Valor por defecto si no tiene link
+        link: product.link || "/*" // Valor por defecto si no tiene link
       }));
       
       setProductos(formattedProducts);
