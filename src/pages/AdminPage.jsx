@@ -34,7 +34,7 @@ export const AdminPage = () => {
       id: Date.now(),
       nombre: nombre,
       imagen: imagen,
-      link: "/ProductDetails"
+      link: "/*"
     };
 
     const updatedProducts = [...products, newProduct];
