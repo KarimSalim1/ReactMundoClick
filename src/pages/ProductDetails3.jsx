@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import CarouselAction from "../components/CarouselApp";
-import '../styles/ProductDetails3.css';
 import { productosRecomendados, productosSimilares } from "../data/carousel";
 import tecladoymouse from '../assets/images/Kit-TecMouse-RD.png';
 import tecladoymouse2 from '../assets/images/Tecladoymouse2-removebg-preview.png';
 import tecladoymouse3 from '../assets/images/Tecladoymouse3-removebg-preview.png';
-import tecladoymouse4 from '../assets/images/Tecladoymouse4-removebg-preview.png';
+import tecladoymouse4 from '../assets/images/tecladoymouse4-removebg-preview.png';
 import { addToCart } from '../utils/cart.js';
 import Notification from "../components/Notification.jsx";
+import '../styles/ProductDetails3.css';
 
 export const ProductDetails3 = () => {
   const [showNotification, setShowNotification] = useState(false);
