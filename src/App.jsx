@@ -13,6 +13,8 @@ import { ProductDetails } from './pages/ProductDetails.jsx'
 import { ProductDetails2 } from './pages/ProductDetails2.jsx'
 import { ProductDetails3 }  from './pages/ProductDetails3.jsx'
 import { ChatMundo } from './pages/ChatMundo.jsx'
+import { AuthProvider } from './context/AuthContext';
+import {AdminPage} from './pages/AdminPage.jsx'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
 import { Navigate } from './components/Navigate'
@@ -23,6 +25,7 @@ import './App.css'
 
 function App() {
   return (
+     <AuthProvider>
     <BrowserRouter>
       <Navigate />
       <Routes>
@@ -39,6 +42,7 @@ function App() {
         <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/ProductDetails2" element={<ProductDetails2 />} />
         <Route path='/productDetails3' element={<ProductDetails3 />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/chat" element={<ChatMundo />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
@@ -48,6 +52,7 @@ function App() {
       </Link>
       <Footer />
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 
