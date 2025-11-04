@@ -5,6 +5,34 @@ main {
 }
 
 
+/* ---------- BUSCADOR ---------- */
+.buscador-section {
+  margin-top: 3rem;
+}
+
+.buscador-input {
+  width: 60%;
+  max-width: 500px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #00ffe7;
+  background-color: #0d1321;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.buscador-input::placeholder {
+  color: #aaa;
+}
+
+.buscador-input:focus {
+  outline: none;
+  border-color: #ffc107;
+  box-shadow: 0 0 10px #ffc107;
+  background-color: #ffffff;
+}
+
 
 .seccion-titulo {
   text-transform: uppercase;

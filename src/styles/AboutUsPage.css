@@ -48,7 +48,7 @@ h3 {
 
 /* SECCIÓN ACERCA DE NOSOTROS */
 .acercaNosotros {
-    padding: 7rem 1.5rem;
+    padding: 4rem 1.5rem;
     text-align: center;
 }
 
@@ -167,6 +167,9 @@ hr {
 
 /* RESPONSIVE */
 @media (max-width: 500px) {
+    .acercaNosotros {
+        padding: 1rem 1rem;
+    }
     h1 {
         font-size: 2rem;
     }
