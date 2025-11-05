@@ -1,10 +1,24 @@
 import { useState, useEffect } from "react";
 import { getCart, removeFromCart } from "../utils/cart.js";
 import { NavLink } from "react-router-dom";
-import '../styles/cartDetails.css';
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import '../styles/CartDetails.css';
 
 export const CartDetails = () => {
   const [carrito, setCarrito] = useState([]);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Si no hay usuario logueado, redirige al login
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    setCarrito(getCart());
+  }, [user, navigate]);
 
   useEffect(() => {
     setCarrito(getCart());
