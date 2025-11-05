@@ -6,6 +6,16 @@ export const users = [
     password: "admin123",
     role: "admin"
   },
+  {
+    email: "Roberto@gmail.com",
+    password: "roberto123",
+    role: "Roberto"
+  },
+    {
+    email: "Luciana@gmail.com",
+    password: "luciana123",
+    role: "Luciana"
+  },
 
   
 ];

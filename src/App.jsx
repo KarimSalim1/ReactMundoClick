@@ -8,7 +8,6 @@ import { Fashion2 } from './pages/Fashion2.jsx'
 import { Technology1 } from './pages/Technology1.jsx'
 import { Technology2 } from './pages/Technology2.jsx'
 import { AboutUsPage } from './pages/AboutUsPage.jsx'
-import { CartDetails } from './pages/CartDetails.jsx'
 import { ProductDetails } from './pages/ProductDetails.jsx'
 import { ProductDetails2 } from './pages/ProductDetails2.jsx'
 import { ProductDetails3 }  from './pages/ProductDetails3.jsx'
@@ -19,6 +18,8 @@ import { Login } from './pages/Login'
 import { Register } from './pages/Register'
 import { Navigate } from './components/Navigate'
 import { Footer } from './components/Footer'
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { CartDetails } from "./pages/CartDetails";
 import botIcono from "./assets/images/bot.png";
 import './App.css'
 
@@ -38,7 +39,14 @@ function App() {
         <Route path='/technology1' element={<Technology1 />} />
         <Route path='/technology2' element={<Technology2 />} />
         <Route path="/AboutUsPage" element={<AboutUsPage />} />
-        <Route path="/cartDetails" element={<CartDetails/>} />
+        <Route
+              path="/cartDetails"
+              element={
+                <ProtectedRoute>
+                  <CartDetails />
+                </ProtectedRoute>
+              }
+            />
         <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/ProductDetails2" element={<ProductDetails2 />} />
         <Route path='/productDetails3' element={<ProductDetails3 />} />

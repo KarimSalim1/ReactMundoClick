@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CarouselAction from "../components/CarouselApp";
 import { productosRecomendados, productosSimilares } from "../data/carousel";
 import tecladoymouse from '../assets/images/Kit-TecMouse-RD.png';
@@ -12,16 +12,34 @@ import '../styles/ProductDetails3.css';
 
 export const ProductDetails3 = () => {
   const [showNotification, setShowNotification] = useState(false);
-  
-          const handleAddToCart = (producto) => {
-              addToCart(producto);
-              setShowNotification(true);
-          };
-  // Estados
   const [rating, setRating] = useState(0);
   const [comentario, setComentario] = useState("");
+  const navigate = useNavigate();
 
-  // Handlers
+  // --- FUNCIONES DE AUTENTICACIÓN ---
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleAddToCart = (producto) => {
+    if (!user) {
+      alert("⚠️ Debes iniciar sesión para agregar productos al carrito.");
+      navigate("/login");
+      return;
+    }
+    addToCart(producto);
+    setShowNotification(true);
+  };
+
+  const handleBuyNow = () => {
+    if (!user) {
+      alert("⚠️ Debes iniciar sesión antes de comprar.");
+      navigate("/login");
+      return;
+    }
+    // Si está logueado, lo mandamos a la página de compra
+    navigate("/checkout");
+  };
+
+  // --- COMENTARIOS ---
   const handleCommentSubmit = () => {
     if (comentario.trim() === "") {
       alert("Por favor escribe un comentario antes de enviar.");
@@ -29,50 +47,38 @@ export const ProductDetails3 = () => {
     }
     console.log("Comentario enviado:", comentario, "Rating:", rating);
     alert(`Gracias por tu comentario!\nRating: ${rating}\nComentario: ${comentario}`);
-    setComentario(""); // limpiar después de enviar
+    setComentario("");
     setRating(0);
   };
 
   return (
     <>
-    {showNotification && (
-                <Notification
-                message="✅ Producto añadido al carrito"
-                onClose={() => setShowNotification(false)}
-                />
-            )}
+      {showNotification && (
+        <Notification
+          message="✅ Producto añadido al carrito"
+          onClose={() => setShowNotification(false)}
+        />
+      )}
+
       <div className="product-container">
         {/* Título del Producto */}
-        <h2 className="product-title">
-          Kit Redragon Teclado Y Mouse K617rgb
-        </h2>
+        <h2 className="product-title">Kit Redragon Teclado Y Mouse K617rgb</h2>
 
         <div className="product-details">
-          {/* Carrusel controlado por radios */}
+          {/* Carrusel */}
           <div className="carousel-container-single">
-            {/* Radios */}
             <input type="radio" name="carousel" id="img1" defaultChecked />
             <input type="radio" name="carousel" id="img2" />
             <input type="radio" name="carousel" id="img3" />
             <input type="radio" name="carousel" id="img4" />
 
-            {/* Imágenes principales */}
             <div className="carousel-images">
-              <a href="#modal1">
-                <img src={tecladoymouse} alt="Producto 1" className="carousel-img img1" />
-              </a>
-              <a href="#modal2">
-                <img src={tecladoymouse2} alt="Producto 2" className="carousel-img img2" />
-              </a>
-              <a href="#modal3">
-                <img src={tecladoymouse3} alt="Producto 3" className="carousel-img img3" />
-              </a>
-              <a href="#modal4">
-                <img src={tecladoymouse4} alt="Producto 4" className="carousel-img img4" />
-              </a>
+              <img src={tecladoymouse} alt="Producto 1" className="carousel-img img1" />
+              <img src={tecladoymouse2} alt="Producto 2" className="carousel-img img2" />
+              <img src={tecladoymouse3} alt="Producto 3" className="carousel-img img3" />
+              <img src={tecladoymouse4} alt="Producto 4" className="carousel-img img4" />
             </div>
 
-            {/* Flechas */}
             <div className="carousel-arrows">
               <label htmlFor="img4" className="prev img1"></label>
               <label htmlFor="img1" className="prev img2"></label>
@@ -86,7 +92,7 @@ export const ProductDetails3 = () => {
             </div>
           </div>
 
-          {/* Información: precio, stock y favorito */}
+          {/* Precio, favorito, botones */}
           <div className="price-info">
             <div className="price">
               $64.400
@@ -102,20 +108,23 @@ export const ProductDetails3 = () => {
 
             <p className="stock-info">Stock disponible: 15 unidades</p>
             <div className="button-container">
-              <button className="buy-now">Comprar Ahora</button>
-            <button
-                                    className="add-cart"
-                                    onClick={() =>
-                                        handleAddToCart({
-                                        id: 3,
-                                        nombre: "Audífonos Gamer Razer Blackshark V2 X RZ0403240100R3M1 Classic Black",
-                                        precio: 699000,
-                                        imagen: tecladoymouse,
-                                        })
-                                    }
-                                    >
-                                    Agregar al Carrito
-                                </button>
+              <button className="buy-now" onClick={handleBuyNow}>
+                Comprar Ahora
+              </button>
+
+              <button
+                className="add-cart"
+                onClick={() =>
+                  handleAddToCart({
+                    id: 3,
+                    nombre: "Kit Redragon Teclado y Mouse K617rgb",
+                    precio: 64400,
+                    imagen: tecladoymouse,
+                  })
+                }
+              >
+                Agregar al Carrito
+              </button>
             </div>
           </div>
         </div>
@@ -132,11 +141,10 @@ export const ProductDetails3 = () => {
           <CarouselAction items={productosRecomendados} />
         </div>
 
-        {/* Sección de Comentarios */}
+        {/* Comentarios */}
         <div className="comments-section">
           <h2>Dejá tu Comentario</h2>
 
-          {/* Calificación interactiva */}
           <div className="comment-rating">
             {[5, 4, 3, 2, 1].map((star) => (
               <label key={star}>
@@ -154,10 +162,15 @@ export const ProductDetails3 = () => {
             ))}
           </div>
 
-          <textarea rows="5" placeholder="Escribe aquí tu comentario..." value={comentario} onChange={(e) => setComentario(e.target.value)} />
+          <textarea
+            rows="5"
+            placeholder="Escribe aquí tu comentario..."
+            value={comentario}
+            onChange={(e) => setComentario(e.target.value)}
+          />
           <button onClick={handleCommentSubmit}>Enviar Comentario</button>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
