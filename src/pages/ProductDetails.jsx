@@ -1,25 +1,45 @@
 import { productosSimilares, productosRecomendados } from "../data/carousel.js";
-import CarouselAction from '../components/CarouselApp.jsx'
+import CarouselAction from '../components/CarouselApp.jsx';
 import iphone12 from "../assets/images/iphone12-removebg-preview.png";
 import iphone from "../assets/images/iphone14frente.png";
 import iphoneAzul from "../assets/images/iphoneazul.png";
 import { addToCart } from '../utils/cart.js';
 import React, { useState } from "react";
 import Notification from "../components/Notification.jsx";
-import '../styles/ProductDetails.css'
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import '../styles/ProductDetails.css';
 
 export const ProductDetails = () => {
     const [showNotification, setShowNotification] = useState(false);
+    const { user } = useAuth();
+    const navigate = useNavigate();
 
+    // 🧩 Función modificada con control de login
     const handleAddToCart = (producto) => {
+        if (!user) {
+            alert("Tenés que iniciar sesión para agregar productos al carrito.");
+            navigate("/login");
+            return;
+        }
         addToCart(producto);
         setShowNotification(true);
     };
-    // Estados
+
+    // 🧩 Función para el botón "Comprar ahora"
+    const handleBuyNow = () => {
+        if (!user) {
+            alert("Tenés que iniciar sesión para comprar.");
+            navigate("/login");
+            return;
+        }
+        navigate("/cartDetails"); // redirige al carrito si ya está logueado
+    };
+
+    // Estados para comentarios
     const [rating, setRating] = useState(0);
     const [comentario, setComentario] = useState("");
 
-    // Handlers
     const handleCommentSubmit = () => {
         if (comentario.trim() === "") {
             alert("Por favor escribe un comentario antes de enviar.");
@@ -27,7 +47,7 @@ export const ProductDetails = () => {
         }
         console.log("Comentario enviado:", comentario, "Rating:", rating);
         alert(`Gracias por tu comentario!\nRating: ${rating}\nComentario: ${comentario}`);
-        setComentario(""); // limpiar después de enviar
+        setComentario("");
         setRating(0);
     };
 
@@ -39,13 +59,11 @@ export const ProductDetails = () => {
                     onClose={() => setShowNotification(false)}
                 />
             )}
+
             <div className="product-container">
-                {/* Título del Producto */}
                 <h2 className="product-title">Apple iPhone 14 (128 GB)</h2>
 
-                {/* Sección principal: Imagen y Datos del Producto */}
                 <div className="product-details">
-                    {/* Carrusel controlado por radios */}
                     <div className="carousel-container-single">
                         <input type="radio" name="carousel" id="img1" defaultChecked />
                         <input type="radio" name="carousel" id="img2" />
@@ -80,7 +98,6 @@ export const ProductDetails = () => {
                         </div>
                     </div>
 
-                    {/* Info Precio, Stock y Botones */}
                     <div className="price-info">
                         <div className="price">
                             $1.500.000
@@ -103,9 +120,9 @@ export const ProductDetails = () => {
 
                         <p className="stock-info">Stock disponible: 15 unidades</p>
                         <div className="button-container">
-                            <a href="/pages/error404.html">
-                                <button className="buy-now">Comprar Ahora</button>
-                            </a>
+                            <button className="buy-now" onClick={handleBuyNow}>
+                                Comprar Ahora
+                            </button>
                             <button
                                 className="add-cart"
                                 onClick={() =>
@@ -123,7 +140,6 @@ export const ProductDetails = () => {
                     </div>
                 </div>
 
-                {/* Descripción */}
                 <div className="product-description">
                     <h3>Descripción del Producto</h3>
                     <p>
@@ -136,7 +152,6 @@ export const ProductDetails = () => {
                     </p>
                 </div>
 
-                {/* Lista detalles */}
                 <ul className="product-details-list">
                     <li>Memoria interna: 128 GB</li>
                     <li>Cámara trasera principal: 12 Mpx</li>
@@ -144,24 +159,20 @@ export const ProductDetails = () => {
                     <li>Cámara frontal principal: 12 Mpx</li>
                     <li>Desbloqueo: Reconocimiento facial</li>
                 </ul>
-                {/* Carrusel: Productos Similares */}
 
                 <div>
                     <h3 className="carousel-title">Productos Similares</h3>
                     <CarouselAction items={productosSimilares} />
                 </div>
 
-                {/* Carrusel: Productos Recomendados */}
                 <div>
                     <h3 className="carousel-title">Productos Recomendados</h3>
                     <CarouselAction items={productosRecomendados} />
                 </div>
 
-                {/* Sección de Comentarios */}
                 <div className="comments-section">
                     <h2>Dejá tu Comentario</h2>
 
-                    {/* Calificación interactiva */}
                     <div className="comment-rating">
                         {[5, 4, 3, 2, 1].map((star) => (
                             <label key={star}>
@@ -179,10 +190,15 @@ export const ProductDetails = () => {
                         ))}
                     </div>
 
-                    <textarea rows="5" placeholder="Escribe aquí tu comentario..." value={comentario} onChange={(e) => setComentario(e.target.value)} />
+                    <textarea
+                        rows="5"
+                        placeholder="Escribe aquí tu comentario..."
+                        value={comentario}
+                        onChange={(e) => setComentario(e.target.value)}
+                    />
                     <button onClick={handleCommentSubmit}>Enviar Comentario</button>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
