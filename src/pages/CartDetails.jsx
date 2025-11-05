@@ -3,7 +3,7 @@ import { getCart, removeFromCart } from "../utils/cart.js";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import '../styles/CartDetails.css';
+import '../styles/cartDetails.css';
 
 export const CartDetails = () => {
   const [carrito, setCarrito] = useState([]);
