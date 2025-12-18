@@ -30,6 +30,8 @@ export const Navigate = () => {
                         <NavLink to="/" className="nav-link-custom">Inicio</NavLink>
                         <NavLink to="/aboutUsPage" className="nav-link-custom">Acerca de Nosotros</NavLink>
                         <NavLink to="/contact" className="nav-link-custom">Contacto</NavLink>
+
+                        
                         
                         {/* Botón Admin - Solo visible para usuarios admin */}
                         {user && user.role === 'admin' && (
@@ -41,6 +43,14 @@ export const Navigate = () => {
                         )}
                     </Nav>
                     <div className="nav-right-section">
+                        <NavLink to="/favoritos" className="cart-icon">
+                            ❤️
+                            <span className=""></span>
+                        </NavLink>
+
+                        <NavLink to="/ayuda" className="cart-icon">
+                            ❓
+                        </NavLink>
                         <div className="nav-icons-container">
                             <NavLink to="/cartDetails" className="cart-icon">
                                 <i className="fas fa-shopping-cart">🛒</i>
