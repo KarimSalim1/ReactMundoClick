@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+// Importamos ambas funciones desde tu helper actualizado
+import { authLogin, recuperarPassword } from '../helper/ApiLogin'; 
 import Logo from "../assets/images/logo_mc.png";
 import "../styles/Login.css";
 
@@ -13,6 +15,7 @@ export const Login = () => {
     password: ''
   });
   const [error, setError] = useState('');
+  const [mensajeExito, setMensajeExito] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -21,15 +24,50 @@ export const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setMensajeExito('');
 
-    const result = login(formData.email, formData.password);
+    const datosParaBackend = {
+      correo: formData.email,
+      password: formData.password
+    };
 
-    if (result.success) {
-      navigate('/'); // Redirige al home después del login
-    } else {
-      setError('Usuario o contraseña incorrectos');
+    try {
+      const respuesta = await authLogin(datosParaBackend);
+      if (respuesta && respuesta.token) {
+        login(respuesta.usuario, respuesta.token); 
+        navigate('/'); 
+      } else {
+        setError(respuesta.msg || 'Error al iniciar sesión');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('No se pudo conectar con el servidor');
+    }
+  };
+
+  // ✅ FUNCIÓN CONECTADA AL BACKEND
+  const handleForgotPassword = async () => {
+    if (!formData.email) {
+      setError('Por favor, ingresa tu correo electrónico primero para recuperarla.');
+      return;
+    }
+    
+    setError('');
+    setMensajeExito('Procesando...'); // Feedback inmediato
+
+    try {
+      // Llamamos a la función del helper que creamos anteriormente
+      const res = await recuperarPassword(formData.email);
+      
+      if (res) {
+        setMensajeExito(res.msg); // "Si el correo existe, se ha enviado..."
+        setError('');
+      }
+    } catch (err) {
+      setError('Error al conectar con el servicio de recuperación.');
     }
   };
 
@@ -84,12 +122,24 @@ export const Login = () => {
               <span
                 className={`toggle-password ${showPassword ? 'visible' : ''}`}
                 onClick={togglePasswordVisibility}
+                style={{ cursor: 'pointer' }}
               >
                 {showPassword ? 'Ocultar' : 'Mostrar'}
               </span>
             </div>
 
-            {error && <p className="error-login">{error}</p>}
+            <div className="olvide-password-container" style={{ textAlign: 'right', marginBottom: '15px' }}>
+              <button 
+                type="button" 
+                onClick={handleForgotPassword}
+                style={{ background: 'none', border: 'none', color: '#007bff', cursor: 'pointer', fontSize: '0.85rem', textDecoration: 'underline' }}
+              >
+                ¿Olvidaste tu contraseña?
+              </button>
+            </div>
+
+            {error && <p className="error-login" style={{ color: 'red', fontSize: '0.9rem', marginBottom: '10px' }}>{error}</p>}
+            {mensajeExito && <p className="exito-login" style={{ color: 'green', fontSize: '0.9rem', marginBottom: '10px' }}>{mensajeExito}</p>}
 
             <button type="submit" className="boton-login">Iniciar Sesión</button>
           </form>

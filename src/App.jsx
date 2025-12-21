@@ -16,6 +16,7 @@ import { AuthProvider } from './context/AuthContext';
 import {AdminPage} from './pages/AdminPage.jsx'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
+import { ResetPassword } from './pages/ResetPassword' // <-- 1. IMPORTA LA NUEVA PÁGINA
 import { Navigate } from './components/Navigate'
 import { Footer } from './components/Footer'
 import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -35,6 +36,10 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        
+        {/* 2. AGREGA LA RUTA CON EL TOKEN DINÁMICO */}
+        <Route path='/reset-password/:token' element={<ResetPassword />} />
+
         <Route path='/fashion1' element={<Fashion1 />} />
         <Route path='/fashion2' element={<Fashion2 />} />
         <Route path='/technology1' element={<Technology1 />} />
@@ -66,4 +71,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
