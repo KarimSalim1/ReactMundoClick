@@ -1,20 +1,27 @@
-import { NavLink, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import { crearUsuario } from '../helper/usuariosApi';
 import Logo from "../assets/images/logo_mc.png";
 import logog from "../assets/images/google-icon.svg";
 import logof from "../assets/images/facebook-icon.svg";
 import "../styles/Register.css";
 
 export const Register = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  
+  // Estado inicial con todos los campos necesarios
   const [formData, setFormData] = useState({
     name: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: '',
     acceptTerms: false
   });
+  
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
@@ -24,20 +31,46 @@ export const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
 
+    // Validaciones básicas de cliente
     if (formData.password !== formData.confirmPassword) {
-      alert("Las contraseñas no coinciden");
+      setError("Las contraseñas no coinciden");
       return;
     }
 
     if (!formData.acceptTerms) {
-      alert("Debes aceptar los términos y condiciones");
+      setError("Debes aceptar los términos y condiciones");
       return;
     }
 
-    console.log('Datos de registro:', formData);
+    // MAPEO DE VARIABLES PARA TU BACKEND
+    const datosParaBackend = {
+      nombre: formData.name,
+      apellido: formData.lastName,
+      correo: formData.email,
+      password: formData.password,
+      rol: "Usuario" // Coincide exactamente con tu MongoDB
+    };
+
+    try {
+      const respuesta = await crearUsuario(datosParaBackend);
+
+      // Si el backend responde con el objeto usuario creado
+      if (respuesta && respuesta.usuario) {
+        alert("¡Cuenta creada con éxito! Ahora puedes iniciar sesión.");
+        navigate('/login'); 
+      } else {
+        // Captura errores de validación del backend (ej: correo duplicado)
+        const msgError = respuesta.errors ? respuesta.errors[0].msg : respuesta.msg;
+        setError(msgError || "Error al registrarse");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("No se pudo conectar con el servidor");
+    }
   };
 
   const togglePasswordVisibility = (field) => {
@@ -64,28 +97,38 @@ export const Register = () => {
           </div>
           
           <form className="formulario-registro" onSubmit={handleSubmit}>
+            
+            {/* Campo Nombre */}
             <div className="grupo-input">
-              <div className="icono-input">
-                <i className="fas fa-user"></i>
-              </div>
+              <div className="icono-input"><i className="fas fa-user"></i></div>
               <input
                 type="text"
-                id="name"
                 name="name"
-                placeholder="Nombre completo"
+                placeholder="Nombre"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
             </div>
-            
+
+            {/* Campo Apellido */}
             <div className="grupo-input">
-              <div className="icono-input">
-                <i className="fas fa-envelope"></i>
-              </div>
+              <div className="icono-input"><i className="fas fa-user"></i></div>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Apellido"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            
+            {/* Campo Correo */}
+            <div className="grupo-input">
+              <div className="icono-input"><i className="fas fa-envelope"></i></div>
               <input
                 type="email"
-                id="email"
                 name="email"
                 placeholder="Correo electrónico"
                 value={formData.email}
@@ -94,44 +137,34 @@ export const Register = () => {
               />
             </div>
             
+            {/* Campo Contraseña */}
             <div className="grupo-input">
-              <div className="icono-input">
-                <i className="fas fa-lock"></i>
-              </div>
+              <div className="icono-input"><i className="fas fa-lock"></i></div>
               <input
                 type={showPassword ? "text" : "password"}
-                id="password"
                 name="password"
                 placeholder="Contraseña"
                 value={formData.password}
                 onChange={handleChange}
                 required
               />
-              <span 
-                className={`toggle-password ${showPassword ? 'visible' : ''}`}
-                onClick={() => togglePasswordVisibility('password')}
-              >
+              <span className="toggle-password" onClick={() => togglePasswordVisibility('password')}>
                 {showPassword ? 'Ocultar' : 'Mostrar'}
               </span>
             </div>
             
+            {/* Confirmar Contraseña */}
             <div className="grupo-input">
-              <div className="icono-input">
-                <i className="fas fa-lock"></i>
-              </div>
+              <div className="icono-input"><i className="fas fa-lock"></i></div>
               <input
                 type={showConfirmPassword ? "text" : "password"}
-                id="confirmPassword"
                 name="confirmPassword"
                 placeholder="Confirmar contraseña"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
               />
-              <span 
-                className={`toggle-password ${showConfirmPassword ? 'visible' : ''}`}
-                onClick={() => togglePasswordVisibility('confirmPassword')}
-              >
+              <span className="toggle-password" onClick={() => togglePasswordVisibility('confirmPassword')}>
                 {showConfirmPassword ? 'Ocultar' : 'Mostrar'}
               </span>
             </div>
@@ -146,25 +179,34 @@ export const Register = () => {
                   onChange={handleChange}
                 />
                 <label htmlFor="aceptarTerminos">
-                  Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>
+                  Acepto los <a href="#">términos y condiciones</a>
                 </label>
               </div>
             </div>
             
-            <NavLink to=" /* "><button type="submit" className="btn-registro">Crear Cuenta</button></NavLink>
+            {/* Mostrar error si existe */}
+            {error && (
+              <p style={{ 
+                color: '#ff4d4d', 
+                backgroundColor: '#ffe6e6', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                fontSize: '0.8rem',
+                textAlign: 'center',
+                marginBottom: '15px',
+                border: '1px solid #ffcccc'
+              }}>
+                {error}
+              </p>
+            )}
+
+            <button type="submit" className="btn-registro">Crear Cuenta</button>
             
-            <div className="separador">
-              <span>o regístrate con</span>
-            </div>
+            <div className="separador"><span>o regístrate con</span></div>
             
             <div className="botones-sociales">
               <button type="button" className="btn-social btn-google">
-                <img src={logog} width="20" alt="Google icon" />
-                Continuar con Google
-              </button>
-              <button type="button" className="btn-social btn-facebook">
-                <img src={logof} width="20" alt="Facebook icon" />
-                Continuar con Facebook
+                <img src={logog} width="20" alt="Google icon" /> Continuar con Google
               </button>
             </div>
             
@@ -175,12 +217,6 @@ export const Register = () => {
             </div>
           </form>
         </div>
-      </div>
-      
-      <div className="decoracion-registro">
-        <div className="item-decoracion"></div>
-        <div className="item-decoracion"></div>
-        <div className="item-decoracion"></div>
       </div>
     </main>
   );
