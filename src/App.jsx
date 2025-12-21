@@ -21,6 +21,7 @@ import { Footer } from './components/Footer'
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { CartDetails } from "./pages/CartDetails";
 import botIcono from "./assets/images/bot.png";
+import  FaqPage  from "./pages/FaqPage.jsx"
 import './App.css'
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path='/technology1' element={<Technology1 />} />
         <Route path='/technology2' element={<Technology2 />} />
         <Route path="/AboutUsPage" element={<AboutUsPage />} />
+        <Route path='/help' element={<FaqPage />} />
         <Route
               path="/cartDetails"
               element={

@@ -48,7 +48,7 @@ export const Navigate = () => {
                             <span className=""></span>
                         </NavLink>
 
-                        <NavLink to="/ayuda" className="cart-icon">
+                        <NavLink to="/help" className="cart-icon">
                             ❓
                         </NavLink>
                         <div className="nav-icons-container">
