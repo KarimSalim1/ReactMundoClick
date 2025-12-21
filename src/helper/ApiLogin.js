@@ -1,6 +1,6 @@
 // Definimos la base para no repetir código
 
-const BASE_URL = "backendmundoclick.vercel.app/api/auth";
+const BASE_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 
 // ✅ Función para Iniciar Sesión
 export const authLogin = async (datos) => {

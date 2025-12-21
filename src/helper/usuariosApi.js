@@ -1,4 +1,4 @@
-const url = "backendmundoclick.vercel.app/api/usuarios";
+const url = `${import.meta.env.VITE_API_URL}/api/usuarios`;
 
 export const getUsuario = async (desde = 0) => {
     try {
