@@ -1,6 +1,6 @@
 // Definimos la base para no repetir código
-// const BASE_URL = "https://backend-mundoclick26.vercel.app/api/auth";
-const BASE_URL = "http://localhost:3000/api/auth";
+
+const BASE_URL = "backendmundoclick.vercel.app/api/auth";
 
 // ✅ Función para Iniciar Sesión
 export const authLogin = async (datos) => {

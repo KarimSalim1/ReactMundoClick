@@ -1,5 +1,4 @@
-const url = "https://backend-mundoclick26.vercel.app/api/usuarios";
-/*const url = "http://localhost:3000/api/usuarios"; */
+const url = "backendmundoclick.vercel.app/api/usuarios";
 
 export const getUsuario = async (desde = 0) => {
     try {
