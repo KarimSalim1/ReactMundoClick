@@ -1,0 +1,156 @@
+:root {
+    --colorPrincipal: #0D1321;
+    --colorSecundario: #1D2D44;
+    --colorTerciario: #3E5C76;
+    --colorCuarto: #748CAB;
+    --colorQuinto: #F0EBD8;
+    --fuentePrincipal: 'Poppins', sans-serif;
+}
+
+/* CONTENEDOR GENERAL */
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: var(--fuentePrincipal);
+}
+
+/* TÍTULO */
+.faq-titulo {
+    text-align: center;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 40px;
+}
+
+/* ITEM */
+.faq-item {
+    background-color: var(--colorQuinto);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+}
+
+/* BOTÓN DE PREGUNTA */
+.faq-pregunta {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px;
+    text-align: left;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--colorSecundario);
+    cursor: pointer;
+    position: relative;
+}
+
+.faq-pregunta::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 20%;
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+/* cuando la pregunta está activa */
+.faq-item .faq-respuesta {
+    animation: abrirRespuesta 0.3s ease forwards;
+}
+
+/* RESPUESTA */
+.faq-respuesta {
+    padding: 0 20px 20px 20px;
+    color: var(--colorTerciario);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ANIMACIÓN */
+@keyframes abrirRespuesta {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* RESPONSIVE */
+
+
+/* Tablets */
+@media (max-width: 768px) {
+    .faq {
+        padding: 40px 16px;
+    }
+
+    .faq-titulo {
+        font-size: 1.9rem;
+        margin-bottom: 30px;
+        color: white;
+    }
+
+    .faq-pregunta {
+        font-size: 1rem;
+        padding: 16px;
+    }
+
+    .faq-respuesta {
+        font-size: 0.92rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .faq {
+        padding: 30px 12px;
+    }
+
+    .faq-titulo {
+        font-size: 1.6rem;
+        display: block;
+        margin-bottom: 24px;
+        color: white;
+    }
+
+    .faq-item {
+        border-radius: 8px;
+    }
+
+    .faq-pregunta {
+        font-size: 0.95rem;
+        padding: 14px;
+    }
+
+    .faq-respuesta {
+        padding: 0 14px 16px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+.faq-titulo {
+    font-size: 1.6rem;
+    margin-top: 80px;
+}
+
+.faq-item {
+    border-radius: 8px;
+}
+
+.faq-pregunta {
+    font-size: 0.95rem;
+    padding: 14px;
+}
+
+.faq-respuesta {
+    padding: 0 14px 16px 14px;
+    font-size: 0.9rem;
+}

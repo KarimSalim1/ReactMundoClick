@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { actualizarPassword } from '../helper/ApiLogin';
 import Logo from "../assets/images/logo_mc.png"; 
 import "../styles/Login.css"; 
-import "../styles/ResetPassword.css";
+import "../styles/resetPassword.css";
 
 export const ResetPassword = () => {
     const { token } = useParams();

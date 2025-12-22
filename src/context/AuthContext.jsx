@@ -1,9 +1,9 @@
-// src/context/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
-import { users as defaultUsers } from "../data/users"; // mantiene el admin por defecto
 
+// 1. Creamos el contexto
 const AuthContext = createContext();
 
+// 2. Exportamos el Hook para que otros componentes lo usen (ESTO FALTABA)
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -19,59 +19,29 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (error) {
+        console.error("Error al cargar usuario", error);
+      }
     }
     setLoading(false);
   }, []);
 
-  // 🔹 Login (admin o cliente)
-  const login = (email, password) => {
-    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    const allUsers = [...defaultUsers, ...storedUsers]; // combina admin + clientes registrados
-
-    const foundUser = allUsers.find(
-      (u) => u.email === email && u.password === password
-    );
-
-    if (foundUser) {
-      const userData = { email: foundUser.email, role: foundUser.role || "user" };
-      setUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
-      return { success: true, user: userData };
-    }
-
-    return { success: false, error: "Credenciales incorrectas" };
+  const login = (userData, token) => {
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
   };
 
-  // 🔹 Logout
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.location.href = "/login";
   };
 
-  // 🔹 Registro de clientes
-  const register = (email, password) => {
-    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-
-    // Evita duplicados
-    if (storedUsers.some((u) => u.email === email)) {
-      return { success: false, error: "El usuario ya existe" };
-    }
-
-    const newUser = { email, password, role: "user" };
-    const updatedUsers = [...storedUsers, newUser];
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-
-    return { success: true };
-  };
-
-  const value = {
-    user,
-    login,
-    logout,
-    register,
-    loading,
-  };
+  const value = { user, login, logout, loading };
 
   return (
     <AuthContext.Provider value={value}>

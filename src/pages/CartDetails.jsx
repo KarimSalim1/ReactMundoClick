@@ -61,11 +61,39 @@ export const CartDetails = () => {
           ))}
 
           <div className="resumen-carrito">
-            <h3>Total: ${total}</h3>
-            <NavLink to="*" className="boton-pagar">
-              💳 Pagar
-            </NavLink>
+          <h3>Total: ${total}</h3>
+
+          {/* Envío */}
+          <div className="envio">
+            <h4>🚚 Envío</h4>
+            <label>
+              <input type="radio" name="envio" defaultChecked />
+              Envío por MercadoLibre
+            </label>
           </div>
+
+          {/* Pago */}
+          <div className="pago">
+            <h4>💳 Datos de la tarjeta</h4>
+            <input type="text" placeholder="Nombre del titular" />
+            <input type="text" placeholder="Número de tarjeta" />
+            <div className="fila">
+              <input type="text" placeholder="MM/AA" />
+              <input type="text" placeholder="CVV" />
+            </div>
+          </div>
+
+          {/* Link de pago */}
+          <a
+            href="https://www.mercadopago.com.ar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="boton-pagar"
+          >
+            Pagar con MercadoPago
+          </a>
+        </div>
+
         </>
       )}
     </div>
