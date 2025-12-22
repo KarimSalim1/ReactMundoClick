@@ -1,22 +1,32 @@
-// Definimos la base para no repetir código
-
-const BASE_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
+// ✅ Definimos la URL base usando la variable de entorno de VITE
+// Si no encuentra la variable (ej. en local), usa localhost por seguridad
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 // ✅ Función para Iniciar Sesión
 export const authLogin = async (datos) => {
     try {
-        const resp = await fetch(`${BASE_URL}/login`, {
+        //Agregué "/api/auth" porque el backend define esa ruta en "this.authPath"
+        const resp = await fetch(`${BASE_URL}/api/auth/login`, {
             method: "POST",
             body: JSON.stringify(datos),
             headers: {
                 "Content-Type": "application/json; charset=UTF-8"
             }
         });
+
+        // Si el backend responde con error (ej. 400 o 404), lanzamos error para que lo atrape el catch
+        if (!resp.ok) {
+             const errorData = await resp.json();
+             throw new Error(errorData.msg || "Error en la petición");
+        }
+
         const data = await resp.json();
         return data;
+
     } catch (error) {
-        console.log(error);
-        return { msg: "No se conectó con backend" };
+        console.error("Error en Login:", error);
+        // Devolvemos el mensaje de error para mostrarlo en pantalla
+        return { msg: error.message || "No se conectó con backend" };
     }
 }
 
