@@ -61,7 +61,7 @@ export const Navigate = () => {
                                 // Usuario logueado - mostrar información y botón de cerrar sesión
                                 <div className="d-flex align-items-center gap-3">
                                     <span className="user-info text-light">
-                                        Hola, {user.role}
+                                        Hola, {user.nombre || user.role}
                                     </span>
                                     <button 
                                         onClick={handleLogout}
