@@ -23,5 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Variable de entorno
+.env
+.env.local
 .env.development
+.env.production
+.env.test
+.env.development.local
